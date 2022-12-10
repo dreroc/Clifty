@@ -1,5 +1,7 @@
 <link rel="icon" type="image/x-icon" href="https://alygnt.github.io/logo/favicon.ico">
 
+##<a href="https://github.com/Alygnt/NPhisher/discussions/14"> POLL - Merge all phishing tools? </a>
+
 <p align="center">
 <a href="https://github.com/alygnt"><img title="Github" src="https://img.shields.io/badge/alygnt-grey?style=for-the-badge&logo=github"></a>
 <a href="https://github.com/alygnt/nphisher"><img title="Github" src="https://img.shields.io/badge/N-red?style=for-the-badge"></a>
