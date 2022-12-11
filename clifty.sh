@@ -452,7 +452,7 @@ ngrok_region() {
 }
 ## Start ngrok
 start_ngrok() {
-        { setup_site; clear; banner; echo -e ""}
+        { setup_site; clear; banner; echo -e ""; }
 	echo -e "\n"
 	ngrokregion="us"
         temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION ${NF} : ${NC}")"
@@ -510,7 +510,7 @@ install_cloudflared() {
 }
 ## Start Cloudflared
 start_cloudflared() {
-        { setup_site; clear; banner; echo -e ""}
+        { setup_site; clear; banner; echo -e ""; }
         rm .cld.log > /dev/null 2>&1 &
         echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared..."
 
@@ -578,7 +578,7 @@ token_localxpose() {
 }
 ## Start LocalXpose
 start_loclx() {
-	{ setup_site; clear; banner; echo -e ""}
+	{ setup_site; clear; banner; echo -e ""; }
 	echo -e "\n"
 	read -n1 -p "${RED}[${WHITE}-${RED}]${YELLOW} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
