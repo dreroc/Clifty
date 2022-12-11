@@ -426,7 +426,7 @@ ngrok_token_setup(){
 	start_ngrok
 }
 ngrok_region() {
-        echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION : ${NF} : ${NC}"
+        echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
         echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Enter prefered region (Default=us) : "
         temprompt="$(echo -e "    ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
 	read -p "${temprompt}" ngrokregion
@@ -447,8 +447,7 @@ ngrok_region() {
 		ngrokregion="in";;
 	*)
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Tryagain"
-		{ sleep 5; clear; banner; echo -e ""}
-		ngrok_region;;
+		{ sleep 5; clear; banner; echo -e ""; ngrok_region; };;
 	esac
 }
 ## Start ngrok
@@ -456,7 +455,7 @@ start_ngrok() {
         { setup_site; clear; banner; echo -e ""}
 	echo -e "\n"
 	ngrokregion="us"
-        temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION : ${NF} : ${NC}")"
+        temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION ${NF} : ${NC}")"
 	read -p "${temprompt}"
 	case $reply in
 	1 | Y | y | yes | Yes | YES)
