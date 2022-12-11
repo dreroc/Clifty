@@ -378,7 +378,7 @@ check_ngrok(){
         { clear; banner; echo -e ""; }
 	if [ ! -e ".server/ngrok" ]; then
 		echo -e " "
-                echo "${GREEN}[${WHITE}!${GREEN}]${GREEN} NGROK NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}!${GREEN}]${GREEN} NGROK NOT INSTALLED!!${BLUE}"
                 echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
@@ -694,7 +694,7 @@ cusport() {
 	1 | Y | y | yes | Yes | YES)
                 echo -e ""
                 echo -e ""
-                temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NF} : ${NC}")"
+                temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NA}${YELLOW}>> ${NC}")"
 		read -p "${temprompt}" cport
 		PORT="${cport}";;
 	*)
@@ -765,7 +765,7 @@ redirect_check(){
 redirect_input() {
         echo -e "\n"
         echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR REDIRECT URL ${NF} : ${NA}"
-        temprompt=$(echo ${YELLOW}>> )
+        temprompt=$(echo -e "${YELLOW}>> " )
         read -p "$temprompt" urdurl
         if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
 		echo -e "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
