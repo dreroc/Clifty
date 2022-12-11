@@ -378,12 +378,12 @@ check_ngrok(){
         { clear; banner; echo -e ""; }
 	if [ ! -e ".server/ngrok" ]; then
 		echo -e " "
-                "${GREEN}[${WHITE}!${GREEN}]${GREEN} NGROK NOT INSTALLED!!${BLUE}"
+                echo "${GREEN}[${WHITE}!${GREEN}]${GREEN} NGROK NOT INSTALLED!!${BLUE}"
                 echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
-                echp -e "${NC}"
+                echo -e "${NC}"
                 echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
 	        read -p "${temprompt}"
 		case $REPLY in
@@ -471,7 +471,7 @@ start_ngrok() {
         setup_site
 	echo -e "\n"
 	ngrokregion="us"
-        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION (Y/n) ${NF} : ${NA}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION (Y/n) ${YELLOW}>> ${NA}")"
 	read -p "${temprompt}"
 	case $REPLY in
 	1 | Y | y | yes | Yes | YES)
@@ -505,7 +505,7 @@ check_cloudflared(){
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
-                echp -e "${NC}"
+                echo -e "${NC}"
 		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
                 read -p "${temprompt}"
 		case $REPLY in
@@ -561,7 +561,7 @@ check_localxpose(){
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
-                echp -e "${NC}"
+                echo -e "${NC}"
 		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
                 read -p "${temprompt}"
 		case $REPLY in
@@ -613,7 +613,7 @@ start_loclx() {
 	{ clear; banner; echo -e ""; }
         setup_site
 	echo -e "\n"
-        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} CHANGE NGROK SERVER REGION (Y/eu/us/N)${NF} : ${NA}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} CHANGE NGROK SERVER REGION (Y/eu/us/N)${YELLOW}>> ${NA}")"
 	read -n1 -p "${temprompt}" opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
 	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
@@ -682,8 +682,9 @@ cusport() {
         echo -e ""
         echo -e ""
         PORT=4444
-        echo -e "${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NF} : ${NC}"
+        echo -e "${RED}[${WHITE}?${RED}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NA}${YELLOW} >> ${NC}"
         echo -e "   ${GREEN}Current port : ${BLUE}${PORT}${NA}"   
+        echo -e ""
         echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
         echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
         echo -e ""
@@ -764,7 +765,8 @@ redirect_check(){
 redirect_input() {
         echo -e "\n"
         echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR REDIRECT URL ${NF} : ${NA}"
-        read -p "> " urdurl
+        temprompt=$(echo ${YELLOW}>> )
+        read -p "$temprompt" urdurl
         if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
 		echo -e "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
                 sleep 3
