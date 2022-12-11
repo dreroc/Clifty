@@ -306,7 +306,7 @@ check_update() {
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
                 echo -e " "
-                echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+                temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
 	        read -p "${temprompt}" ureply
 		case $ureply in
 			Y | y)
@@ -384,7 +384,7 @@ check_ngrok(){
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
                 echo -e "${NC}"
-                echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+                temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
 	        read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
@@ -443,6 +443,7 @@ ngrok_token_setup(){
 	start_ngrok
 }
 ngrok_region() {
+        echo -e ""
         echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
         temprompt="$(echo -e " ${GREEN}(Example: us eu au ap sa jp in)${NC} :")"
 	read -p "${temprompt}" ngrokregion
@@ -500,13 +501,13 @@ check_cloudflared(){
         { clear; banner; echo -e ""; }
 	if [ ! -e ".server/cloudflared" ]; then
 		echo -e " "
-                "${GREEN}[${WHITE}!${GREEN}]${GREEN} CLOUDFLARED NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}!${GREEN}]${GREEN} CLOUDFLARED NOT INSTALLED!!${BLUE}"
                 echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
                 echo -e "${NC}"
-		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+		temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
                 read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
@@ -556,13 +557,13 @@ fetchlink_cloudflared() {
 check_localxpose(){
 	if [ ! -e ".server/loclx" ]; then
 		echo -e " "
-                "${GREEN}[${WHITE}!${GREEN}]${GREEN} LOCALXPOSE NOT INSTALLED!!${BLUE}"
+                echo -e "${GREEN}[${WHITE}!${GREEN}]${GREEN} LOCALXPOSE NOT INSTALLED!!${BLUE}"
                 echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} Do you want to install now? ${NF} : ${NC}"
                 echo -e " " 
                 echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
                 echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
                 echo -e "${NC}"
-		echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+		temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
                 read -p "${temprompt}"
 		case $REPLY in
 		Y | y)
@@ -829,7 +830,7 @@ cusurl(){
         echo -e "" 
         echo -e "${BLUE}[1/Y]  ${CYAN} YES ${NC}"
         echo -e "${BLUE}[2/N/*]${CYAN} NO ${NC}"
-        echo -e "$(echo -e "${YELLOW}>> ${BLUE}")"
+        temprompt="$(echo -e "${YELLOW}>> ${BLUE}")"
 	read -p "${temprompt}" CUS_URI
 	case $CUS_URI in
                 Y | y)
