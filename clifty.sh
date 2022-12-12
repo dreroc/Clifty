@@ -1502,6 +1502,7 @@ fi
 
 ## DOWNLOAD SITES
 download_allsite(){
+        { clear; banner; echo -e ""; }
         rm -rf ${sites_dir}
         echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Downloading Sites..."
         wget --no-check-certificate https://github.com/Alygnt/phisher-modules/archive/refs/heads/sites.zip > /dev/null 2>&1
