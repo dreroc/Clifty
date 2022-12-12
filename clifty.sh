@@ -1503,19 +1503,27 @@ fi
 ## DOWNLOAD SITES
 download_allsite(){
         { clear; banner; echo -e ""; }
-        rm -rf ${sites_dir}
-        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Downloading Sites..."
-        wget --no-check-certificate https://github.com/Alygnt/phisher-modules/archive/refs/heads/sites.zip > /dev/null 2>&1
-        sleep 1
-        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Unzipping Sites..."
-        unzip -q sites.zip
-        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Setting UP..."
-        mv phisher-modules-sites ${pro_dir}
-        rm rf sites.zip
-        mv phisher-modules-sites .sites
-        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} SITES ARE DOWNLOADED SUCCESSFULLY..."
-        sleep 3
-        mainmenu
+        check_netstats
+	if [ $netstats=="Online" ]; then
+		rm -rf ${sites_dir}
+                echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Downloading Sites..."
+                wget --no-check-certificate https://github.com/Alygnt/phisher-modules/archive/refs/heads/sites.zip > /dev/null 2>&1
+                sleep 1
+                echo -e "\n${BLUE}[${WHITE}-${BLUE}]${GREEN} Unzipping Sites..."
+                unzip -q sites.zip
+                echo -e "\n${BLUE}[${WHITE}-${BLUE}]${GREEN} Setting UP..."
+                mv phisher-modules-sites ${pro_dir}
+                rm rf sites.zip
+                mv phisher-modules-sites .sites
+                echo -e "\n${BLUE}[${WHITE}-${BLUE}]${BOLDGREEN} SITES ARE DOWNLOADED SUCCESSFULLY... ${NA}"
+                sleep 3
+                mainmenu        
+	else
+		echo -e "\n${BLUE}[${RED}!${BLUE}]${BOLDRED} YOUR OFFLINE!! CAN'T DOWNLOAD NOW ${NA}"
+		sleep 3
+		mainmenu
+	fi
+        
 }   
 #WEBSITES
 #adobe
